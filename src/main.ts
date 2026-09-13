@@ -425,17 +425,19 @@ function setupStudioIntro() {
     if (audioPlayed) return;
     audioPlayed = true;
     try {
+      const base = import.meta.env.BASE_URL;
       const audioEl = document.getElementById('cybercore-intro-audio') as HTMLAudioElement | null;
       if (audioEl) {
+        audioEl.src = `${base}assets/audio/cybercore_sound_2_hollywood.wav`;
         audioEl.currentTime = 0;
         audioEl.volume = 1.0;
         audioEl.play().catch(() => {
-          const fallback = new Audio('/assets/audio/cybercore_sound_2_hollywood.wav');
+          const fallback = new Audio(`${base}assets/audio/cybercore_sound_2_hollywood.wav`);
           fallback.volume = 1.0;
           fallback.play().catch(() => {});
         });
       } else {
-        const fallback = new Audio('/assets/audio/cybercore_sound_2_hollywood.wav');
+        const fallback = new Audio(`${base}assets/audio/cybercore_sound_2_hollywood.wav`);
         fallback.volume = 1.0;
         fallback.play().catch(() => {});
       }

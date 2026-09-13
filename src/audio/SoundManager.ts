@@ -18,15 +18,16 @@ export class SoundManager {
     this.isHapticsEnabled = localStorage.getItem('survi_run_haptics') !== 'false';
 
     try {
-      this.menuBgm = new Audio('/assets/audio/menu_theme.wav');
+      const base = import.meta.env.BASE_URL;
+      this.menuBgm = new Audio(`${base}assets/audio/menu_theme.wav`);
       this.menuBgm.loop = true;
       this.menuBgm.volume = this.isMuted ? 0 : 0.30;
 
-      this.gameBgm = new Audio('/assets/audio/game_theme.wav');
+      this.gameBgm = new Audio(`${base}assets/audio/game_theme.wav`);
       this.gameBgm.loop = true;
       this.gameBgm.volume = this.isMuted ? 0 : 0.35;
 
-      this.bossBgm = new Audio('/assets/audio/boss_theme.wav');
+      this.bossBgm = new Audio(`${base}assets/audio/boss_theme.wav`);
       this.bossBgm.loop = true;
       this.bossBgm.volume = this.isMuted ? 0 : 0.38;
     } catch (e) {
