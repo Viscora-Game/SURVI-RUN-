@@ -29,7 +29,7 @@ export class Game {
   public camera: Camera;
   public input: InputManager;
   public mapManager: MapManager;
-  public state: GameState = 'PLAYING';
+  public state: GameState = 'START';
 
   public selectedShip: ShipId = 'vanguard';
   public weaponDamageStats: Map<AnyWeaponId, WeaponDamageStats> = new Map();
@@ -97,7 +97,7 @@ export class Game {
       const t = i18n.t as unknown as Record<string, string>;
       const title = t[`event_${event.type}_title`] || event.name;
       const desc = t[`event_${event.type}_desc`] || '';
-      this.ui.showAnnouncement(`⚡ ${title} ⚡\n${desc}`);
+      this.ui.showAnnouncement(`[${title}]\n${desc}`);
       this.camera.addShake(14);
     };
 
@@ -156,6 +156,8 @@ export class Game {
     this.isPlayerDying = false;
     this.isGameOverTriggered = false;
     this.isRunning = true;
+    this.state = 'PLAYING';
+    this.ui.setHUDVisible(true);
     sounds.playGameMusic();
     this.lastTime = performance.now();
     requestAnimationFrame((t) => this.loop(t));
@@ -215,6 +217,9 @@ export class Game {
     this.isGameOverTriggered = false;
     this.isRunning = false;
     this.state = 'START';
+    this.ui.setHUDVisible(false);
+    this.ctx.fillStyle = '#03050a';
+    this.ctx.fillRect(0, 0, this.canvas.width, this.canvas.height);
     sounds.playGem();
     sounds.playMenuMusic();
 
@@ -244,7 +249,7 @@ export class Game {
       const t = i18n.t as unknown as Record<string, string>;
       const title = t[`event_${event.type}_title`] || event.name;
       const desc = t[`event_${event.type}_desc`] || '';
-      this.ui.showAnnouncement(`⚡ ${title} ⚡\n${desc}`);
+      this.ui.showAnnouncement(`[${title}]\n${desc}`);
       this.camera.addShake(14);
     };
     this.mapManager = new MapManager('neo_kyoto');
@@ -297,7 +302,7 @@ export class Game {
       const t = i18n.t as unknown as Record<string, string>;
       const title = t[`event_${event.type}_title`] || event.name;
       const desc = t[`event_${event.type}_desc`] || '';
-      this.ui.showAnnouncement(`⚡ ${title} ⚡\n${desc}`);
+      this.ui.showAnnouncement(`[${title}]\n${desc}`);
       this.camera.addShake(14);
     };
 
@@ -430,7 +435,7 @@ export class Game {
         sounds.playHit();
         const died = target.takeDamage(65);
         this.particleSystem.emit(target.x, target.y, 8, '#00ffff', 120, 3, 0.3, 'line');
-        this.floatingText.spawn(target.x, target.y - 15, '65 ⚡', '#00ffff', true, 14);
+        this.floatingText.spawn(target.x, target.y - 15, '65', '#00ffff', true, 14);
         if (died) this.onEnemyKilled(target);
       }
     }
@@ -439,7 +444,7 @@ export class Game {
     if (this.player.autoVacuumInterval > 0 && this.player.autoVacuumTimer >= this.player.autoVacuumInterval) {
       this.player.autoVacuumTimer = 0;
       sounds.playChest();
-      this.floatingText.spawn(this.player.x, this.player.y - 25, '🧲 VACUUM PULSE!', '#00e5ff', true, 16);
+      this.floatingText.spawn(this.player.x, this.player.y - 25, 'VACUUM PULSE!', '#00e5ff', true, 16);
       this.particleSystem.emitRing(this.player.x, this.player.y, 250, '#00e5ff', 0.6);
       for (const drop of this.drops) {
         drop.isAttracted = true;
@@ -594,7 +599,7 @@ export class Game {
             if (res.drops.length > 0) {
               this.drops.push(...res.drops);
               this.runShardsEarned += 3;
-              this.floatingText.spawn(dest.x, dest.y, '+3 💎', '#00e5ff', false, 14);
+              this.floatingText.spawn(dest.x, dest.y, '+3', '#00e5ff', false, 14);
             }
 
             // Barrel explosion damage to enemies
@@ -760,7 +765,7 @@ export class Game {
         sounds.playNuke();
         this.camera.addShake(10);
         this.particleSystem.emitRing(this.player.x, this.player.y, 220, '#10b981', 0.5);
-        this.floatingText.spawn(this.player.x, this.player.y - 30, '⚡ EMP OVERLOAD!', '#10b981', true, 18);
+        this.floatingText.spawn(this.player.x, this.player.y - 30, 'EMP OVERLOAD!', '#10b981', true, 18);
         for (const e of this.enemies) {
           if (e.isAlive) {
             e.applyStun(1.5);
@@ -785,13 +790,13 @@ export class Game {
     // Tachyon Rift: 3s unlimited dash on elite/boss kill
     if (this.player.eliteKillUnlimitedDash && (enemy.isElite || enemy.isBoss)) {
       this.player.unlimitedDashTimer = 3.0;
-      this.floatingText.spawn(this.player.x, this.player.y - 25, '⚡ TACHYON RIFT!', '#00f0ff', true, 16);
+      this.floatingText.spawn(this.player.x, this.player.y - 25, 'TACHYON RIFT!', '#00f0ff', true, 16);
     }
 
     // Tycoon Bounty
     if (this.player.eliteBonusShards > 0 && enemy.isElite) {
       this.runShardsEarned += this.player.eliteBonusShards;
-      this.floatingText.spawn(enemy.x, enemy.y - 35, `+${this.player.eliteBonusShards} 💎 BOUNTY`, '#fbbf24', true, 16);
+      this.floatingText.spawn(enemy.x, enemy.y - 35, `+${this.player.eliteBonusShards} BOUNTY`, '#fbbf24', true, 16);
     }
 
     // Shard duplication chance
@@ -845,7 +850,7 @@ export class Game {
       if (this.player.doubleShardChance > 0 && Math.random() < this.player.doubleShardChance) {
         this.runShardsEarned += 1;
       }
-      if (leveledUp) {
+      if (leveledUp && this.state !== 'LEVEL_UP') {
         this.triggerLevelUp();
       }
     } else if (drop.type === 'health_pack') {
@@ -893,14 +898,19 @@ export class Game {
           if (this.player.stats.armor >= 10) {
             achievementManager.reportArmor(this.player.stats.armor);
           }
-          this.state = 'PLAYING';
-          this.lastTime = performance.now();
+          if (this.player.pendingLevelUps > 0) {
+            this.player.pendingLevelUps--;
+            showOptions();
+          } else {
+            this.state = 'PLAYING';
+            this.lastTime = performance.now();
+          }
         },
         this.player.availableRerolls > 0
           ? () => {
               this.player.availableRerolls--;
               sounds.playGem();
-              this.floatingText.spawn(this.player.x, this.player.y, '🎲 REROLL', '#8b5cf6', true, 16);
+              this.floatingText.spawn(this.player.x, this.player.y, 'REROLL', '#8b5cf6', true, 16);
               showOptions();
             }
           : undefined,
@@ -1033,6 +1043,12 @@ export class Game {
   private render() {
     const ctx = this.ctx;
     const cam = this.camera;
+
+    if (this.state === 'START') {
+      ctx.fillStyle = '#03050a';
+      ctx.fillRect(0, 0, this.canvas.width, this.canvas.height);
+      return;
+    }
 
     // Clear background
     ctx.fillStyle = '#060913';

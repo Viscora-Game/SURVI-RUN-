@@ -1,3 +1,4 @@
+import { icon } from './ui/Icons';
 import './style.css';
 import { Game } from './core/Game';
 import { i18n } from './i18n';
@@ -22,13 +23,13 @@ function renderUI() {
       <!-- Minimalist Top Navigation Bar -->
       <header class="menu-top-bar">
         <div class="menu-quick-tools">
-          <span id="nav-shards-badge" class="shard-badge" title="${t.shardsLabel}">💎 <strong>${skillTree.getShards().toLocaleString()}</strong></span>
+          <span id="nav-shards-badge" class="shard-badge" title="${t.shardsLabel}">${icon('gem', 14)} <strong>${skillTree.getShards().toLocaleString()}</strong></span>
           <div class="lang-switch-pill">
             <button id="nav-lang-en" class="lang-pill-btn ${i18n.lang === 'en' ? 'active' : ''}">EN</button>
             <button id="nav-lang-tr" class="lang-pill-btn ${i18n.lang === 'tr' ? 'active' : ''}">TR</button>
           </div>
           <button id="nav-audio-btn" class="icon-tool-btn" title="Audio Toggle">
-            ${sounds.isMuted ? '🔇' : '🔊'}
+            ${icon(sounds.isMuted ? 'vol-off' : 'vol-on', 14)}
           </button>
         </div>
       </header>
@@ -41,22 +42,22 @@ function renderUI() {
         <div class="menu-actions">
           <button id="start-btn" class="btn-primary-deploy">
             <span class="btn-shine"></span>
-            <span class="btn-icon">▶</span>
+            <span class="btn-icon">${icon('play', 15)}</span>
             <span class="btn-label">${t.btnStart}</span>
           </button>
 
           <div class="menu-sub-actions menu-grid-actions">
             <button id="hangar-btn" class="btn-secondary-action">
-              <span class="sub-icon">🚀</span> ${t.hangarBtn || t.hangarTitle}
+              <span class="sub-icon">${icon('rocket', 14)}</span> ${t.hangarBtn || t.hangarTitle}
             </button>
             <button id="skill-tree-btn" class="btn-secondary-action">
-              <span class="sub-icon">🧬</span> ${t.btnSkillTree}
+              <span class="sub-icon">${icon('dna', 14)}</span> ${t.btnSkillTree}
             </button>
             <button id="achievements-btn" class="btn-secondary-action">
-              <span class="sub-icon">🏆</span> ${t.achievementsBtn || t.achievementsTitle}
+              <span class="sub-icon">${icon('trophy', 14)}</span> ${t.achievementsBtn || t.achievementsTitle}
             </button>
             <button id="settings-btn" class="btn-secondary-action">
-              <span class="sub-icon">⚙️</span> ${t.btnSettings}
+              <span class="sub-icon">${icon('gear', 14)}</span> ${t.btnSettings}
             </button>
           </div>
         </div>
@@ -67,22 +68,22 @@ function renderUI() {
         <div class="drawer-content settings-drawer-content">
           <div class="drawer-header">
             <h2>${t.settingsTitle}</h2>
-            <button id="close-settings-btn" class="drawer-close-btn">✕</button>
+            <button id="close-settings-btn" class="drawer-close-btn" aria-label="Close">${icon('close', 14)}</button>
           </div>
 
           <!-- Policy & Settings Navigation Tabs -->
           <div class="settings-nav-tabs">
             <button id="tab-btn-general" class="settings-tab-btn active">
-              <span>⚙️</span> ${t.tabGeneral}
+              <span>${icon('gear', 14)}</span> ${t.tabGeneral}
             </button>
             <button id="tab-btn-privacy" class="settings-tab-btn">
-              <span>🛡️</span> ${t.tabPrivacy}
+              <span>${icon('shield', 14)}</span> ${t.tabPrivacy}
             </button>
             <button id="tab-btn-terms" class="settings-tab-btn">
-              <span>📜</span> ${t.tabTerms}
+              <span>${icon('scroll', 14)}</span> ${t.tabTerms}
             </button>
             <button id="tab-btn-safety" class="settings-tab-btn">
-              <span>🔒</span> ${t.tabDataSafety}
+              <span>${icon('lock', 14)}</span> ${t.tabDataSafety}
             </button>
           </div>
 
@@ -185,28 +186,28 @@ function renderUI() {
                 </div>
                 <div class="safety-grid">
                   <div class="safety-card">
-                    <span class="safety-icon">🔒</span>
+                    <span class="safety-icon">${icon('lock', 18)}</span>
                     <div>
                       <strong>${t.safetyEncryptedTitle}</strong>
                       <p>${t.safetyEncryptedDesc}</p>
                     </div>
                   </div>
                   <div class="safety-card">
-                    <span class="safety-icon">🚫</span>
+                    <span class="safety-icon">${icon('ban', 18)}</span>
                     <div>
                       <strong>${t.safetyNoSharingTitle}</strong>
                       <p>${t.safetyNoSharingDesc}</p>
                     </div>
                   </div>
                   <div class="safety-card">
-                    <span class="safety-icon">👶</span>
+                    <span class="safety-icon">${icon('child', 18)}</span>
                     <div>
                       <strong>${t.safetyChildrenTitle}</strong>
                       <p>${t.safetyChildrenDesc}</p>
                     </div>
                   </div>
                   <div class="safety-card">
-                    <span class="safety-icon">🗑️</span>
+                    <span class="safety-icon">${icon('trash', 18)}</span>
                     <div>
                       <strong>${t.safetyDeletionTitle}</strong>
                       <p>${t.safetyDeletionDesc}</p>
@@ -247,7 +248,7 @@ function renderUI() {
   const skillTreeUI = new SkillTreeUI();
   skillTreeUI.onCloseCallback = () => {
     const badge = document.getElementById('nav-shards-badge');
-    if (badge) badge.innerHTML = `💎 <strong>${skillTree.getShards().toLocaleString()}</strong>`;
+    if (badge) badge.innerHTML = `${icon('gem', 14)} <strong>${skillTree.getShards().toLocaleString()}</strong>`;
   };
 
   if (skillTreeBtn) {
@@ -260,7 +261,7 @@ function renderUI() {
   const hangarUI = new HangarUI();
   hangarUI.onCloseCallback = () => {
     const badge = document.getElementById('nav-shards-badge');
-    if (badge) badge.innerHTML = `💎 <strong>${skillTree.getShards().toLocaleString()}</strong>`;
+    if (badge) badge.innerHTML = `${icon('gem', 14)} <strong>${skillTree.getShards().toLocaleString()}</strong>`;
   };
 
   const hangarBtn = document.getElementById('hangar-btn');
@@ -274,7 +275,7 @@ function renderUI() {
   const achievementsUI = new AchievementsUI();
   achievementsUI.onCloseCallback = () => {
     const badge = document.getElementById('nav-shards-badge');
-    if (badge) badge.innerHTML = `💎 <strong>${skillTree.getShards().toLocaleString()}</strong>`;
+    if (badge) badge.innerHTML = `${icon('gem', 14)} <strong>${skillTree.getShards().toLocaleString()}</strong>`;
   };
 
   const achievementsBtn = document.getElementById('achievements-btn');
@@ -287,17 +288,19 @@ function renderUI() {
   // Hook game returning to main menu
   game.onReturnToMenu = () => {
     sounds.playMenuMusic();
+    game.ui.setHUDVisible(false);
     if (menu) {
       menu.classList.remove('hidden');
     }
     const badge = document.getElementById('nav-shards-badge');
-    if (badge) badge.innerHTML = `💎 <strong>${skillTree.getShards().toLocaleString()}</strong>`;
+    if (badge) badge.innerHTML = `${icon('gem', 14)} <strong>${skillTree.getShards().toLocaleString()}</strong>`;
   };
 
   // Start Action
   const launchGame = () => {
     if (menu && !menu.classList.contains('hidden')) {
       menu.classList.add('hidden');
+      game.ui.setHUDVisible(true);
       sounds.playFocus();
       sounds.playGameMusic();
       game.start();
@@ -403,7 +406,7 @@ function renderUI() {
     const isMuted = sounds.toggleMute();
     const navAudio = document.getElementById('nav-audio-btn');
     const modalAudio = document.getElementById('modal-audio-btn');
-    if (navAudio) navAudio.textContent = isMuted ? '🔇' : '🔊';
+    if (navAudio) navAudio.innerHTML = icon(isMuted ? 'vol-off' : 'vol-on', 14);
     if (modalAudio) modalAudio.textContent = isMuted ? i18n.t.audioMuted : i18n.t.audioOn;
   };
 

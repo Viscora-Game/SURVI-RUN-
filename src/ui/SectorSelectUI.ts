@@ -1,3 +1,4 @@
+import { icon } from './Icons';
 import { SECTORS, type SectorId } from '../core/MapManager';
 import { i18n } from '../i18n';
 import { sounds } from '../audio/SoundManager';
@@ -44,14 +45,14 @@ export class SectorSelectUI {
 
     const sectorCards = Object.values(SECTORS).map((sec) => {
       const isSelected = sec.id === this.selectedSector;
-      const skulls = '💀'.repeat(sec.difficulty);
+      const skulls = Array(sec.difficulty).fill(icon('skull', 13)).join(' ');
       const name = t[sec.nameKey] || sec.id;
       const desc = t[sec.descKey] || '';
 
       return `
         <div class="sector-card ${isSelected ? 'selected' : ''}" data-sector-id="${sec.id}">
           <div class="sector-header">
-            <span class="sector-icon">${sec.icon}</span>
+            <span class="sector-icon">${icon(sec.icon, 22) || sec.icon}</span>
             <div class="sector-meta">
               <h3 class="sector-title">${name}</h3>
               <div class="sector-danger" title="${t.hazardRating || 'Hazard Rating'}">${skulls}</div>
@@ -62,11 +63,11 @@ export class SectorSelectUI {
 
           <div class="sector-badges">
             <span class="sec-badge xp-badge">XP: x${sec.xpMult.toFixed(2)}</span>
-            <span class="sec-badge shard-badge-pill">💎 x${sec.shardMult.toFixed(2)}</span>
+            <span class="sec-badge shard-badge-pill">${icon('gem', 13)} x${sec.shardMult.toFixed(2)}</span>
           </div>
 
           <button class="sector-deploy-btn ${isSelected ? 'active' : ''}">
-            ${isSelected ? (t.activeSector || '✓ ACTIVE SECTOR') : (t.selectSector || 'SELECT SECTOR')}
+            ${isSelected ? `${icon('check', 13)} ${t.activeSector || 'ACTIVE SECTOR'}` : (t.selectSector || 'SELECT SECTOR')}
           </button>
         </div>
       `;
@@ -79,7 +80,7 @@ export class SectorSelectUI {
             <span class="st-tag">${t.sectorTag || 'OPERATIONAL ZONES'}</span>
             <h2>${t.sectorTitle || 'MISSION SECTORS'}</h2>
           </div>
-          <button id="close-sector-btn" class="drawer-close-btn">✕</button>
+          <button id="close-sector-btn" class="drawer-close-btn" aria-label="Close">${icon('close', 14)}</button>
         </div>
 
         <div class="sector-grid">

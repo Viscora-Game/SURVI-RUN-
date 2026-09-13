@@ -131,10 +131,10 @@ export class Destructible extends Entity {
 
       // Hazard Stripes / Symbol
       ctx.fillStyle = '#f59e0b';
-      ctx.font = 'bold 12px sans-serif';
+      ctx.font = 'bold 12px Orbitron, sans-serif';
       ctx.textAlign = 'center';
       ctx.textBaseline = 'middle';
-      ctx.fillText('⚡', 0, 1);
+      ctx.fillText('!', 0, 1);
 
     } else if (this.type === 'energy_pylon') {
       // Indestructible Energy Pylon / Column

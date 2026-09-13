@@ -1,3 +1,4 @@
+import { icon } from './Icons';
 import type { Player } from '../entities/Player';
 import type { Weapon } from '../weapons/Weapon';
 import type { UpgradeCard, WeaponDamageStats } from '../types';
@@ -28,6 +29,29 @@ export class UIManager {
       this.refreshTexts();
       if (this.onLanguageChange) this.onLanguageChange();
     });
+
+    // Start with HUD hidden (only visible once game starts)
+    this.setHUDVisible(false);
+  }
+
+  public setHUDVisible(visible: boolean) {
+    if (!this.container) return;
+    const hudEls = [
+      document.getElementById('xp-bar-container'),
+      document.getElementById('top-hud'),
+      document.getElementById('equipment-tray'),
+      document.getElementById('bottom-hud'),
+      document.getElementById('touch-dash-btn'),
+    ];
+    for (const el of hudEls) {
+      if (el) {
+        if (visible) {
+          el.classList.remove('hud-hidden');
+        } else {
+          el.classList.add('hud-hidden');
+        }
+      }
+    }
   }
 
   private buildBaseDOM() {
@@ -41,25 +65,25 @@ export class UIManager {
 
       <!-- Top Stats Bar -->
       <div id="top-hud">
-        <div class="hud-stat" id="timer-stat">⏱️ <span id="timer-val">00:00</span></div>
-        <div class="hud-stat" id="kills-stat">💀 <span id="kills-val">0</span></div>
-        <div class="hud-stat" id="coins-stat">🪙 <span id="coins-val">0</span></div>
+        <div class="hud-stat" id="timer-stat">${icon('timer', 14)} <span id="timer-val">00:00</span></div>
+        <div class="hud-stat" id="kills-stat">${icon('skull', 14)} <span id="kills-val">0</span></div>
+        <div class="hud-stat" id="coins-stat">${icon('coin', 14)} <span id="coins-val">0</span></div>
         
         <div class="hud-divider"></div>
 
         <!-- Quick Language Switcher -->
         <button id="lang-toggle-btn" class="hud-pill-btn" title="Toggle Language (EN / TR)">
-          🌐 <span id="lang-label">${i18n.lang.toUpperCase()}</span>
+          ${icon('globe', 13)} <span id="lang-label">${i18n.lang.toUpperCase()}</span>
         </button>
 
         <!-- Audio Mute -->
         <button id="audio-btn" class="hud-pill-btn" title="Mute/Unmute Audio">
-          ${sounds.isMuted ? '🔇' : '🔊'}
+          ${icon(sounds.isMuted ? 'vol-off' : 'vol-on', 14)}
         </button>
 
         <!-- Pause -->
         <button id="pause-btn" class="hud-pill-btn" title="Pause Game">
-          ⏸️
+          ${icon('pause', 13)}
         </button>
       </div>
 
@@ -67,7 +91,7 @@ export class UIManager {
       <div id="boss-hud" class="boss-hud hidden">
         <div class="boss-info">
           <div class="boss-title-row">
-            <span class="boss-skull">💀</span>
+            <span class="boss-skull">${icon('skull', 18)}</span>
             <span id="boss-name">TITAN MECH OVERLORD</span>
           </div>
           <span id="boss-title">IRON COLOSSUS • [PHASE 1]</span>
@@ -84,14 +108,14 @@ export class UIManager {
       <div id="equipment-tray">
         <div class="equip-section weapons-section">
           <div class="equip-header">
-            <span class="equip-badge weapon-badge">⚡</span>
+            <span class="equip-badge weapon-badge">${icon('sword', 13)}</span>
             <span class="equip-label" id="label-weapons">${t.weapons}</span>
           </div>
           <div id="weapon-slots" class="slots-container"></div>
         </div>
         <div class="equip-section passives-section">
           <div class="equip-header">
-            <span class="equip-badge passive-badge">🛡️</span>
+            <span class="equip-badge passive-badge">${icon('shield', 13)}</span>
             <span class="equip-label" id="label-passives">${t.passives}</span>
           </div>
           <div id="passive-slots" class="slots-container"></div>
@@ -112,9 +136,9 @@ export class UIManager {
 
       <!-- Holographic Sector Shift Banner -->
       <div id="sector-shift-banner" class="sector-shift-banner hidden">
-        <div class="sector-shift-badge">⚠️ <span id="sector-shift-label">SEKTÖR DÖNÜŞÜMÜ</span> ⚠️</div>
+        <div class="sector-shift-badge">${icon('warning', 13)} <span id="sector-shift-label">SEKTÖR DÖNÜŞÜMÜ</span> ${icon('warning', 13)}</div>
         <h2 id="sector-shift-name">MAGMA CORE</h2>
-        <div id="sector-shift-detail" class="sector-shift-detail">⚡ Tehlike Seviyesi: TIER 3  •  💎 Kristal: 1.75x</div>
+        <div id="sector-shift-detail" class="sector-shift-detail">${icon('bolt', 13)} Tehlike Seviyesi: TIER 3  •  ${icon('gem', 13)} Kristal: 1.75x</div>
       </div>
 
       <!-- Virtual Touch Dash Button (for mobile) -->
@@ -137,7 +161,7 @@ export class UIManager {
 
         <div class="go-tabs">
           <button id="go-tab-summary" class="go-tab-btn active">${t.tabStats}</button>
-          <button id="go-tab-damage" class="go-tab-btn">⚔️ ${t.tabDamage}</button>
+          <button id="go-tab-damage" class="go-tab-btn">${icon('sword', 13)} ${t.tabDamage}</button>
         </div>
 
         <!-- 1. Summary Pane -->
@@ -147,7 +171,7 @@ export class UIManager {
               <span id="go-lbl-time">${t.timeSurvived}</span>
               <div class="stat-val-group">
                 <strong id="go-time">00:00</strong>
-                <span class="go-best-sub" id="go-best-wrap" title="${t.bestRecord}">🏆 <span id="go-best-prefix">${i18n.lang === 'tr' ? 'En İyi:' : 'Best:'}</span> <strong id="go-best-time">00:00</strong></span>
+                <span class="go-best-sub" id="go-best-wrap" title="${t.bestRecord}">${icon('trophy', 13)} <span id="go-best-prefix">${i18n.lang === 'tr' ? 'En İyi:' : 'Best:'}</span> <strong id="go-best-time">00:00</strong></span>
               </div>
             </div>
             <div class="stat-row"><span id="go-lbl-kills">${t.enemiesDefeated}</span> <strong id="go-kills">0</strong></div>
@@ -181,29 +205,29 @@ export class UIManager {
 
         <div class="pause-quick-bar">
           <div class="pause-quick-pill lang-pill">
-            <span class="pill-label" id="pause-lang-label">🌐 ${t.langLabel}</span>
+            <span class="pill-label" id="pause-lang-label">${icon('globe', 13)} ${t.langLabel}</span>
             <div class="lang-switch-container">
               <button id="set-lang-en" class="lang-btn ${i18n.lang === 'en' ? 'active' : ''}">EN</button>
               <button id="set-lang-tr" class="lang-btn ${i18n.lang === 'tr' ? 'active' : ''}">TR</button>
             </div>
           </div>
           <button id="pause-audio-btn" class="pause-quick-pill audio-pill">
-            <span id="pause-audio-icon">${sounds.isMuted ? '🔇' : '🔊'}</span>
+            <span id="pause-audio-icon">${icon(sounds.isMuted ? 'vol-off' : 'vol-on', 14)}</span>
             <span id="pause-audio-text">${sounds.isMuted ? t.audioMuted : t.audioOn}</span>
           </button>
         </div>
 
         <div class="pause-controls">
           <button id="resume-btn" class="pause-action-btn pause-resume-btn">
-            <span class="btn-icon">▶</span>
+            <span class="btn-icon">${icon('play', 14)}</span>
             <span id="pause-resume-text">${t.btnResume}</span>
           </button>
           <button id="pause-restart-btn" class="pause-action-btn pause-restart-btn">
-            <span class="btn-icon">🔄</span>
+            <span class="btn-icon">${icon('refresh', 14)}</span>
             <span id="pause-restart-text">${t.btnRestart}</span>
           </button>
           <button id="pause-menu-btn" class="pause-action-btn pause-menu-btn">
-            <span class="btn-icon">🏠</span>
+            <span class="btn-icon">${icon('home', 14)}</span>
             <span id="pause-menu-text">${t.btnMainMenu}</span>
           </button>
         </div>
@@ -225,7 +249,7 @@ export class UIManager {
     if (audioBtn) {
       audioBtn.onclick = () => {
         const isMuted = sounds.toggleMute();
-        audioBtn.textContent = isMuted ? '🔇' : '🔊';
+        audioBtn.innerHTML = icon(isMuted ? 'vol-off' : 'vol-on', 14);
         const pauseAudio = document.getElementById('pause-audio-btn');
         if (pauseAudio) {
           pauseAudio.textContent = isMuted ? i18n.t.audioMuted : i18n.t.audioOn;
@@ -271,7 +295,7 @@ export class UIManager {
     if (pauseSubtitle) pauseSubtitle.textContent = t.systemSuspended;
 
     const pauseLang = document.getElementById('pause-lang-label');
-    if (pauseLang) pauseLang.textContent = `🌐 ${t.langLabel}`;
+    if (pauseLang) pauseLang.innerHTML = `${icon('globe', 13)} ${t.langLabel}`;
 
     const resumeBtn = document.getElementById('resume-btn');
     if (resumeBtn) resumeBtn.textContent = t.btnResume;
@@ -286,7 +310,7 @@ export class UIManager {
     const pauseAudioText = document.getElementById('pause-audio-text');
     if (pauseAudioText) pauseAudioText.textContent = sounds.isMuted ? t.audioMuted : t.audioOn;
     const pauseAudioIcon = document.getElementById('pause-audio-icon');
-    if (pauseAudioIcon) pauseAudioIcon.textContent = sounds.isMuted ? '🔇' : '🔊';
+    if (pauseAudioIcon) pauseAudioIcon.innerHTML = icon(sounds.isMuted ? 'vol-off' : 'vol-on', 14);
 
     const pauseMenuBtn = document.getElementById('pause-menu-btn');
     if (pauseMenuBtn) pauseMenuBtn.textContent = t.btnMainMenu;
@@ -358,7 +382,7 @@ export class UIManager {
     if (detail) {
       const diff = i18n.lang === 'tr' ? 'Tehlike' : 'Threat';
       const shard = i18n.lang === 'tr' ? 'Kristal Çarpanı' : 'Shard Multiplier';
-      detail.textContent = `⚡ ${diff}: TIER ${sector.difficulty}  •  💎 ${shard}: ${sector.shardMult}x`;
+      detail.innerHTML = `${icon('bolt', 13)} ${diff}: TIER ${sector.difficulty}  •  ${icon('gem', 13)} ${shard}: ${sector.shardMult}x`;
     }
 
     banner.classList.remove('hidden');
@@ -525,9 +549,9 @@ export class UIManager {
       cardEl.className = `upgrade-card rarity-${card.rarity}`;
       const isW = card.type.startsWith('weapon');
       const isP = card.type.startsWith('passive');
-      const catText = isW ? (i18n.lang === 'tr' ? '⚔️ SİLAH' : '⚔️ WEAPON')
-                         : (isP ? (i18n.lang === 'tr' ? '🛡️ PASİF' : '🛡️ PASSIVE')
-                                : (i18n.lang === 'tr' ? '❤️ ONARIM' : '❤️ REPAIR'));
+      const catText = isW ? `${icon('sword', 13)} ${i18n.lang === 'tr' ? 'SİLAH' : 'WEAPON'}`
+                         : (isP ? `${icon('shield', 13)} ${i18n.lang === 'tr' ? 'PASİF' : 'PASSIVE'}`
+                                : `${icon('heart', 13)} ${i18n.lang === 'tr' ? 'ONARIM' : 'REPAIR'}`);
       const catClass = isW ? 'cat-weapon' : (isP ? 'cat-passive' : 'cat-heal');
 
       cardEl.innerHTML = `
@@ -554,7 +578,7 @@ export class UIManager {
       rerollContainer.className = 'modal-reroll-wrapper';
       rerollContainer.innerHTML = `
         <button id="upgrade-reroll-btn" class="reroll-action-btn">
-          <span class="reroll-icon">🎲</span>
+          <span class="reroll-icon">${icon('dice', 14)}</span>
           <span class="reroll-text">${t.rerollBtn} (${rerollsLeft})</span>
         </button>
       `;
@@ -608,10 +632,10 @@ export class UIManager {
       const isEvo = card.type === 'weapon_evolution';
       const isW = card.type.startsWith('weapon');
       const isP = card.type.startsWith('passive');
-      const catText = isEvo ? (i18n.lang === 'tr' ? '⚡ EVRİM' : '⚡ EVOLUTION')
-                            : (isW ? (i18n.lang === 'tr' ? '⚔️ SİLAH' : '⚔️ WEAPON')
-                            : (isP ? (i18n.lang === 'tr' ? '🛡️ PASİF' : '🛡️ PASSIVE')
-                                   : (i18n.lang === 'tr' ? '❤️ ONARIM' : '❤️ REPAIR')));
+      const catText = isEvo ? `${icon('zap', 13)} ${i18n.lang === 'tr' ? 'EVRİM' : 'EVOLUTION'}`
+                            : (isW ? `${icon('sword', 13)} ${i18n.lang === 'tr' ? 'SİLAH' : 'WEAPON'}`
+                            : (isP ? `${icon('shield', 13)} ${i18n.lang === 'tr' ? 'PASİF' : 'PASSIVE'}`
+                                   : `${icon('heart', 13)} ${i18n.lang === 'tr' ? 'ONARIM' : 'REPAIR'}`));
       const catClass = isEvo ? 'cat-evo' : (isW ? 'cat-weapon' : (isP ? 'cat-passive' : 'cat-heal'));
 
       cardEl.innerHTML = `
@@ -780,7 +804,7 @@ export class UIManager {
     }
   }
 
-  public showAchievementToast(icon: string, title: string) {
+  public showAchievementToast(achIcon: string, title: string) {
     let toast = document.getElementById('achievement-toast');
     if (!toast) {
       toast = document.createElement('div');
@@ -789,9 +813,9 @@ export class UIManager {
     }
     toast.innerHTML = `
       <div class="ach-toast-box">
-        <span class="ach-toast-icon">${icon}</span>
+        <span class="ach-toast-icon">${achIcon}</span>
         <div class="ach-toast-body">
-          <span class="ach-toast-badge">🏆 ${i18n.t.achUnlockedNotification}</span>
+          <span class="ach-toast-badge">${icon('trophy', 14)} ${i18n.t.achUnlockedNotification}</span>
           <span class="ach-toast-title">${title}</span>
         </div>
       </div>
@@ -841,13 +865,13 @@ export class UIManager {
       const audioIcon = document.getElementById('pause-audio-icon');
       if (audioBtn) {
         if (audioText) audioText.textContent = sounds.isMuted ? i18n.t.audioMuted : i18n.t.audioOn;
-        if (audioIcon) audioIcon.textContent = sounds.isMuted ? '🔇' : '🔊';
+        if (audioIcon) audioIcon.innerHTML = icon(sounds.isMuted ? 'vol-off' : 'vol-on', 14);
         audioBtn.onclick = () => {
           const isMuted = sounds.toggleMute();
           if (audioText) audioText.textContent = isMuted ? i18n.t.audioMuted : i18n.t.audioOn;
-          if (audioIcon) audioIcon.textContent = isMuted ? '🔇' : '🔊';
+          if (audioIcon) audioIcon.innerHTML = icon(isMuted ? 'vol-off' : 'vol-on', 14);
           const hudAudio = document.getElementById('audio-btn');
-          if (hudAudio) hudAudio.textContent = isMuted ? '🔇' : '🔊';
+          if (hudAudio) hudAudio.innerHTML = icon(isMuted ? 'vol-off' : 'vol-on', 14);
         };
       }
     } else {

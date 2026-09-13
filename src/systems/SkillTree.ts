@@ -39,157 +39,157 @@ export class SkillTreeManager {
       // 1. WARFARE TREE (26 NODES)
       // =======================================================================
       // Tier 1 (2 Gateway Starters + 4 Foundation Branches)
-      { id: 'wf_kinetics', category: 'warfare', tier: 1, nameKey: 'wf_kinetics_name', descKey: 'wf_kinetics_desc', icon: '💥', maxRank: 5, baseCost: 50, costMult: 1.4 },
-      { id: 'wf_cadence', category: 'warfare', tier: 1, nameKey: 'wf_cadence_name', descKey: 'wf_cadence_desc', icon: '⚡', maxRank: 5, baseCost: 60, costMult: 1.4 },
-      { id: 'wf_optics', category: 'warfare', tier: 1, nameKey: 'wf_optics_name', descKey: 'wf_optics_desc', icon: '🎯', maxRank: 5, baseCost: 70, costMult: 1.4, parents: ['wf_kinetics'] },
-      { id: 'wf_caliber', category: 'warfare', tier: 1, nameKey: 'wf_caliber_name', descKey: 'wf_caliber_desc', icon: '🔥', maxRank: 3, baseCost: 90, costMult: 1.5, parents: ['wf_kinetics'] },
-      { id: 'wf_velocity', category: 'warfare', tier: 1, nameKey: 'wf_velocity_name', descKey: 'wf_velocity_desc', icon: '💨', maxRank: 3, baseCost: 60, costMult: 1.4, parents: ['wf_cadence'] },
-      { id: 'wf_penetration', category: 'warfare', tier: 1, nameKey: 'wf_penetration_name', descKey: 'wf_penetration_desc', icon: '🗡️', maxRank: 2, baseCost: 110, costMult: 1.6, parents: ['wf_cadence'] },
+      { id: 'wf_kinetics', category: 'warfare', tier: 1, nameKey: 'wf_kinetics_name', descKey: 'wf_kinetics_desc', icon: 'burst', maxRank: 5, baseCost: 50, costMult: 1.4 },
+      { id: 'wf_cadence', category: 'warfare', tier: 1, nameKey: 'wf_cadence_name', descKey: 'wf_cadence_desc', icon: 'bolt', maxRank: 5, baseCost: 60, costMult: 1.4 },
+      { id: 'wf_optics', category: 'warfare', tier: 1, nameKey: 'wf_optics_name', descKey: 'wf_optics_desc', icon: 'target', maxRank: 5, baseCost: 70, costMult: 1.4, parents: ['wf_kinetics'] },
+      { id: 'wf_caliber', category: 'warfare', tier: 1, nameKey: 'wf_caliber_name', descKey: 'wf_caliber_desc', icon: 'fire', maxRank: 3, baseCost: 90, costMult: 1.5, parents: ['wf_kinetics'] },
+      { id: 'wf_velocity', category: 'warfare', tier: 1, nameKey: 'wf_velocity_name', descKey: 'wf_velocity_desc', icon: 'wind', maxRank: 3, baseCost: 60, costMult: 1.4, parents: ['wf_cadence'] },
+      { id: 'wf_penetration', category: 'warfare', tier: 1, nameKey: 'wf_penetration_name', descKey: 'wf_penetration_desc', icon: 'blade', maxRank: 2, baseCost: 110, costMult: 1.6, parents: ['wf_cadence'] },
 
       // Tier 2 (Advanced Sub-branches)
-      { id: 'wf_recoil_brake', category: 'warfare', tier: 2, nameKey: 'wf_recoil_brake_name', descKey: 'wf_recoil_brake_desc', icon: '🔩', maxRank: 3, baseCost: 140, costMult: 1.5, parents: ['wf_optics'] },
-      { id: 'wf_multishot', category: 'warfare', tier: 2, nameKey: 'wf_multishot_name', descKey: 'wf_multishot_desc', icon: '🌀', maxRank: 2, baseCost: 240, costMult: 1.8, parents: ['wf_cadence'] },
-      { id: 'wf_shrapnel', category: 'warfare', tier: 2, nameKey: 'wf_shrapnel_name', descKey: 'wf_shrapnel_desc', icon: '💣', maxRank: 3, baseCost: 160, costMult: 1.5, parents: ['wf_caliber'] },
-      { id: 'wf_overdrive', category: 'warfare', tier: 2, nameKey: 'wf_overdrive_name', descKey: 'wf_overdrive_desc', icon: '⚙️', maxRank: 3, baseCost: 150, costMult: 1.5, parents: ['wf_optics'] },
-      { id: 'wf_plasma_infusion', category: 'warfare', tier: 2, nameKey: 'wf_plasma_infusion_name', descKey: 'wf_plasma_infusion_desc', icon: '🧪', maxRank: 3, baseCost: 180, costMult: 1.6, parents: ['wf_penetration'] },
-      { id: 'wf_ballistic_mass', category: 'warfare', tier: 2, nameKey: 'wf_ballistic_mass_name', descKey: 'wf_ballistic_mass_desc', icon: '🪨', maxRank: 3, baseCost: 160, costMult: 1.5, parents: ['wf_velocity'] },
+      { id: 'wf_recoil_brake', category: 'warfare', tier: 2, nameKey: 'wf_recoil_brake_name', descKey: 'wf_recoil_brake_desc', icon: 'recoil', maxRank: 3, baseCost: 140, costMult: 1.5, parents: ['wf_optics'] },
+      { id: 'wf_multishot', category: 'warfare', tier: 2, nameKey: 'wf_multishot_name', descKey: 'wf_multishot_desc', icon: 'vortex', maxRank: 2, baseCost: 240, costMult: 1.8, parents: ['wf_cadence'] },
+      { id: 'wf_shrapnel', category: 'warfare', tier: 2, nameKey: 'wf_shrapnel_name', descKey: 'wf_shrapnel_desc', icon: 'bomb', maxRank: 3, baseCost: 160, costMult: 1.5, parents: ['wf_caliber'] },
+      { id: 'wf_overdrive', category: 'warfare', tier: 2, nameKey: 'wf_overdrive_name', descKey: 'wf_overdrive_desc', icon: 'gear', maxRank: 3, baseCost: 150, costMult: 1.5, parents: ['wf_optics'] },
+      { id: 'wf_plasma_infusion', category: 'warfare', tier: 2, nameKey: 'wf_plasma_infusion_name', descKey: 'wf_plasma_infusion_desc', icon: 'chem', maxRank: 3, baseCost: 180, costMult: 1.6, parents: ['wf_penetration'] },
+      { id: 'wf_ballistic_mass', category: 'warfare', tier: 2, nameKey: 'wf_ballistic_mass_name', descKey: 'wf_ballistic_mass_desc', icon: 'mass', maxRank: 3, baseCost: 160, costMult: 1.5, parents: ['wf_velocity'] },
 
       // Tier 3: Path A (Plasma Singularity) - MUTEX A
-      { id: 'wf_pl_core', category: 'warfare', tier: 3, nameKey: 'wf_pl_core_name', descKey: 'wf_pl_core_desc', icon: '⚛️', maxRank: 3, baseCost: 350, costMult: 1.6, parents: ['wf_plasma_infusion'], mutexGroup: 'wf_spec', mutexBranch: 'A' },
-      { id: 'wf_pl_burn', category: 'warfare', tier: 3, nameKey: 'wf_pl_burn_name', descKey: 'wf_pl_burn_desc', icon: '🔥', maxRank: 3, baseCost: 400, costMult: 1.6, parents: ['wf_pl_core'], mutexGroup: 'wf_spec', mutexBranch: 'A' },
-      { id: 'wf_pl_chain', category: 'warfare', tier: 3, nameKey: 'wf_pl_chain_name', descKey: 'wf_pl_chain_desc', icon: '⚡', maxRank: 3, baseCost: 450, costMult: 1.7, parents: ['wf_pl_burn'], mutexGroup: 'wf_spec', mutexBranch: 'A' },
-      { id: 'wf_pl_melt', category: 'warfare', tier: 3, nameKey: 'wf_pl_melt_name', descKey: 'wf_pl_melt_desc', icon: '🌡️', maxRank: 2, baseCost: 550, costMult: 1.8, parents: ['wf_pl_chain'], mutexGroup: 'wf_spec', mutexBranch: 'A' },
-      { id: 'wf_pl_supercharge', category: 'warfare', tier: 3, nameKey: 'wf_pl_supercharge_name', descKey: 'wf_pl_supercharge_desc', icon: '💫', maxRank: 2, baseCost: 650, costMult: 1.8, parents: ['wf_pl_melt'], mutexGroup: 'wf_spec', mutexBranch: 'A' },
-      { id: 'wf_pl_singularity', category: 'warfare', tier: 3, nameKey: 'wf_pl_singularity_name', descKey: 'wf_pl_singularity_desc', icon: '🌌', maxRank: 1, baseCost: 950, costMult: 1.0, parents: ['wf_pl_supercharge'], mutexGroup: 'wf_spec', mutexBranch: 'A' },
+      { id: 'wf_pl_core', category: 'warfare', tier: 3, nameKey: 'wf_pl_core_name', descKey: 'wf_pl_core_desc', icon: 'atom', maxRank: 3, baseCost: 350, costMult: 1.6, parents: ['wf_plasma_infusion'], mutexGroup: 'wf_spec', mutexBranch: 'A' },
+      { id: 'wf_pl_burn', category: 'warfare', tier: 3, nameKey: 'wf_pl_burn_name', descKey: 'wf_pl_burn_desc', icon: 'fire', maxRank: 3, baseCost: 400, costMult: 1.6, parents: ['wf_pl_core'], mutexGroup: 'wf_spec', mutexBranch: 'A' },
+      { id: 'wf_pl_chain', category: 'warfare', tier: 3, nameKey: 'wf_pl_chain_name', descKey: 'wf_pl_chain_desc', icon: 'bolt', maxRank: 3, baseCost: 450, costMult: 1.7, parents: ['wf_pl_burn'], mutexGroup: 'wf_spec', mutexBranch: 'A' },
+      { id: 'wf_pl_melt', category: 'warfare', tier: 3, nameKey: 'wf_pl_melt_name', descKey: 'wf_pl_melt_desc', icon: 'heat', maxRank: 2, baseCost: 550, costMult: 1.8, parents: ['wf_pl_chain'], mutexGroup: 'wf_spec', mutexBranch: 'A' },
+      { id: 'wf_pl_supercharge', category: 'warfare', tier: 3, nameKey: 'wf_pl_supercharge_name', descKey: 'wf_pl_supercharge_desc', icon: 'flux', maxRank: 2, baseCost: 650, costMult: 1.8, parents: ['wf_pl_melt'], mutexGroup: 'wf_spec', mutexBranch: 'A' },
+      { id: 'wf_pl_singularity', category: 'warfare', tier: 3, nameKey: 'wf_pl_singularity_name', descKey: 'wf_pl_singularity_desc', icon: 'void', maxRank: 1, baseCost: 950, costMult: 1.0, parents: ['wf_pl_supercharge'], mutexGroup: 'wf_spec', mutexBranch: 'A' },
 
       // Tier 3: Path B (Ballistic Overkill) - MUTEX B
-      { id: 'wf_ba_slugs', category: 'warfare', tier: 3, nameKey: 'wf_ba_slugs_name', descKey: 'wf_ba_slugs_desc', icon: '💥', maxRank: 3, baseCost: 350, costMult: 1.6, parents: ['wf_ballistic_mass'], mutexGroup: 'wf_spec', mutexBranch: 'B' },
-      { id: 'wf_ba_flak', category: 'warfare', tier: 3, nameKey: 'wf_ba_flak_name', descKey: 'wf_ba_flak_desc', icon: '💣', maxRank: 3, baseCost: 400, costMult: 1.6, parents: ['wf_ba_slugs'], mutexGroup: 'wf_spec', mutexBranch: 'B' },
-      { id: 'wf_ba_concussion', category: 'warfare', tier: 3, nameKey: 'wf_ba_concussion_name', descKey: 'wf_ba_concussion_desc', icon: '💫', maxRank: 3, baseCost: 450, costMult: 1.7, parents: ['wf_ba_flak'], mutexGroup: 'wf_spec', mutexBranch: 'B' },
-      { id: 'wf_ba_bleed', category: 'warfare', tier: 3, nameKey: 'wf_ba_bleed_name', descKey: 'wf_ba_bleed_desc', icon: '🩸', maxRank: 2, baseCost: 550, costMult: 1.8, parents: ['wf_ba_concussion'], mutexGroup: 'wf_spec', mutexBranch: 'B' },
-      { id: 'wf_ba_ricochet', category: 'warfare', tier: 3, nameKey: 'wf_ba_ricochet_name', descKey: 'wf_ba_ricochet_desc', icon: '🔄', maxRank: 2, baseCost: 650, costMult: 1.8, parents: ['wf_ba_bleed'], mutexGroup: 'wf_spec', mutexBranch: 'B' },
-      { id: 'wf_ba_devastator', category: 'warfare', tier: 3, nameKey: 'wf_ba_devastator_name', descKey: 'wf_ba_devastator_desc', icon: '🚀', maxRank: 1, baseCost: 950, costMult: 1.0, parents: ['wf_ba_ricochet'], mutexGroup: 'wf_spec', mutexBranch: 'B' },
+      { id: 'wf_ba_slugs', category: 'warfare', tier: 3, nameKey: 'wf_ba_slugs_name', descKey: 'wf_ba_slugs_desc', icon: 'burst', maxRank: 3, baseCost: 350, costMult: 1.6, parents: ['wf_ballistic_mass'], mutexGroup: 'wf_spec', mutexBranch: 'B' },
+      { id: 'wf_ba_flak', category: 'warfare', tier: 3, nameKey: 'wf_ba_flak_name', descKey: 'wf_ba_flak_desc', icon: 'bomb', maxRank: 3, baseCost: 400, costMult: 1.6, parents: ['wf_ba_slugs'], mutexGroup: 'wf_spec', mutexBranch: 'B' },
+      { id: 'wf_ba_concussion', category: 'warfare', tier: 3, nameKey: 'wf_ba_concussion_name', descKey: 'wf_ba_concussion_desc', icon: 'flux', maxRank: 3, baseCost: 450, costMult: 1.7, parents: ['wf_ba_flak'], mutexGroup: 'wf_spec', mutexBranch: 'B' },
+      { id: 'wf_ba_bleed', category: 'warfare', tier: 3, nameKey: 'wf_ba_bleed_name', descKey: 'wf_ba_bleed_desc', icon: 'bleed', maxRank: 2, baseCost: 550, costMult: 1.8, parents: ['wf_ba_concussion'], mutexGroup: 'wf_spec', mutexBranch: 'B' },
+      { id: 'wf_ba_ricochet', category: 'warfare', tier: 3, nameKey: 'wf_ba_ricochet_name', descKey: 'wf_ba_ricochet_desc', icon: 'ricochet', maxRank: 2, baseCost: 650, costMult: 1.8, parents: ['wf_ba_bleed'], mutexGroup: 'wf_spec', mutexBranch: 'B' },
+      { id: 'wf_ba_devastator', category: 'warfare', tier: 3, nameKey: 'wf_ba_devastator_name', descKey: 'wf_ba_devastator_desc', icon: 'rocket', maxRank: 1, baseCost: 950, costMult: 1.0, parents: ['wf_ba_ricochet'], mutexGroup: 'wf_spec', mutexBranch: 'B' },
 
       // Tier 4 (Capstones)
-      { id: 'wf_omni_arsenal', category: 'warfare', tier: 4, nameKey: 'wf_omni_arsenal_name', descKey: 'wf_omni_arsenal_desc', icon: '👑', maxRank: 1, baseCost: 1500, costMult: 1.0, parents: ['wf_pl_singularity', 'wf_ba_devastator'] },
-      { id: 'wf_god_slayer', category: 'warfare', tier: 4, nameKey: 'wf_god_slayer_name', descKey: 'wf_god_slayer_desc', icon: '⚡', maxRank: 1, baseCost: 1800, costMult: 1.0, parents: ['wf_omni_arsenal'] },
+      { id: 'wf_omni_arsenal', category: 'warfare', tier: 4, nameKey: 'wf_omni_arsenal_name', descKey: 'wf_omni_arsenal_desc', icon: 'crown', maxRank: 1, baseCost: 1500, costMult: 1.0, parents: ['wf_pl_singularity', 'wf_ba_devastator'] },
+      { id: 'wf_god_slayer', category: 'warfare', tier: 4, nameKey: 'wf_god_slayer_name', descKey: 'wf_god_slayer_desc', icon: 'bolt', maxRank: 1, baseCost: 1800, costMult: 1.0, parents: ['wf_omni_arsenal'] },
 
       // =======================================================================
       // 2. DEFENSE TREE (26 NODES)
       // =======================================================================
       // Tier 1 (2 Gateway Starters + 4 Foundation Branches)
-      { id: 'df_frame', category: 'defense', tier: 1, nameKey: 'df_frame_name', descKey: 'df_frame_desc', icon: '🛡️', maxRank: 5, baseCost: 50, costMult: 1.4 },
-      { id: 'df_plating', category: 'defense', tier: 1, nameKey: 'df_plating_name', descKey: 'df_plating_desc', icon: '🔩', maxRank: 5, baseCost: 60, costMult: 1.4 },
-      { id: 'df_regen', category: 'defense', tier: 1, nameKey: 'df_regen_name', descKey: 'df_regen_desc', icon: '🧪', maxRank: 4, baseCost: 80, costMult: 1.5, parents: ['df_frame'] },
-      { id: 'df_battery', category: 'defense', tier: 1, nameKey: 'df_battery_name', descKey: 'df_battery_desc', icon: '🔋', maxRank: 3, baseCost: 70, costMult: 1.4, parents: ['df_frame'] },
-      { id: 'df_tenacity', category: 'defense', tier: 1, nameKey: 'df_tenacity_name', descKey: 'df_tenacity_desc', icon: '🧱', maxRank: 3, baseCost: 60, costMult: 1.4, parents: ['df_plating'] },
+      { id: 'df_frame', category: 'defense', tier: 1, nameKey: 'df_frame_name', descKey: 'df_frame_desc', icon: 'shield', maxRank: 5, baseCost: 50, costMult: 1.4 },
+      { id: 'df_plating', category: 'defense', tier: 1, nameKey: 'df_plating_name', descKey: 'df_plating_desc', icon: 'recoil', maxRank: 5, baseCost: 60, costMult: 1.4 },
+      { id: 'df_regen', category: 'defense', tier: 1, nameKey: 'df_regen_name', descKey: 'df_regen_desc', icon: 'chem', maxRank: 4, baseCost: 80, costMult: 1.5, parents: ['df_frame'] },
+      { id: 'df_battery', category: 'defense', tier: 1, nameKey: 'df_battery_name', descKey: 'df_battery_desc', icon: 'battery', maxRank: 3, baseCost: 70, costMult: 1.4, parents: ['df_frame'] },
+      { id: 'df_tenacity', category: 'defense', tier: 1, nameKey: 'df_tenacity_name', descKey: 'df_tenacity_desc', icon: 'barrier', maxRank: 3, baseCost: 60, costMult: 1.4, parents: ['df_plating'] },
       { id: 'df_resilience', category: 'defense', tier: 1, nameKey: 'df_resilience_name', descKey: 'df_resilience_desc', icon: '🩹', maxRank: 3, baseCost: 75, costMult: 1.5, parents: ['df_plating'] },
 
       // Tier 2 (Advanced Sub-branches)
-      { id: 'df_barrier', category: 'defense', tier: 2, nameKey: 'df_barrier_name', descKey: 'df_barrier_desc', icon: '✨', maxRank: 3, baseCost: 140, costMult: 1.5, parents: ['df_frame'] },
+      { id: 'df_barrier', category: 'defense', tier: 2, nameKey: 'df_barrier_name', descKey: 'df_barrier_desc', icon: 'spark', maxRank: 3, baseCost: 140, costMult: 1.5, parents: ['df_frame'] },
       { id: 'df_thorns', category: 'defense', tier: 2, nameKey: 'df_thorns_name', descKey: 'df_thorns_desc', icon: '🌵', maxRank: 3, baseCost: 150, costMult: 1.5, parents: ['df_plating'] },
-      { id: 'df_second_wind', category: 'defense', tier: 2, nameKey: 'df_second_wind_name', descKey: 'df_second_wind_desc', icon: '💨', maxRank: 3, baseCost: 160, costMult: 1.5, parents: ['df_regen'] },
-      { id: 'df_hardened_hull', category: 'defense', tier: 2, nameKey: 'df_hardened_hull_name', descKey: 'df_hardened_hull_desc', icon: '🦾', maxRank: 3, baseCost: 180, costMult: 1.6, parents: ['df_tenacity'] },
-      { id: 'df_shield_pulse', category: 'defense', tier: 2, nameKey: 'df_shield_pulse_name', descKey: 'df_shield_pulse_desc', icon: '💫', maxRank: 2, baseCost: 200, costMult: 1.7, parents: ['df_battery'] },
-      { id: 'df_overcharge_shield', category: 'defense', tier: 2, nameKey: 'df_overcharge_shield_name', descKey: 'df_overcharge_shield_desc', icon: '🛡️', maxRank: 3, baseCost: 170, costMult: 1.6, parents: ['df_resilience'] },
+      { id: 'df_second_wind', category: 'defense', tier: 2, nameKey: 'df_second_wind_name', descKey: 'df_second_wind_desc', icon: 'wind', maxRank: 3, baseCost: 160, costMult: 1.5, parents: ['df_regen'] },
+      { id: 'df_hardened_hull', category: 'defense', tier: 2, nameKey: 'df_hardened_hull_name', descKey: 'df_hardened_hull_desc', icon: 'cyber', maxRank: 3, baseCost: 180, costMult: 1.6, parents: ['df_tenacity'] },
+      { id: 'df_shield_pulse', category: 'defense', tier: 2, nameKey: 'df_shield_pulse_name', descKey: 'df_shield_pulse_desc', icon: 'flux', maxRank: 2, baseCost: 200, costMult: 1.7, parents: ['df_battery'] },
+      { id: 'df_overcharge_shield', category: 'defense', tier: 2, nameKey: 'df_overcharge_shield_name', descKey: 'df_overcharge_shield_desc', icon: 'shield', maxRank: 3, baseCost: 170, costMult: 1.6, parents: ['df_resilience'] },
 
       // Tier 3: Path A (Iron Colossus) - MUTEX A
       { id: 'df_co_bastion', category: 'defense', tier: 3, nameKey: 'df_co_bastion_name', descKey: 'df_co_bastion_desc', icon: '🏰', maxRank: 3, baseCost: 350, costMult: 1.6, parents: ['df_hardened_hull'], mutexGroup: 'df_spec', mutexBranch: 'A' },
       { id: 'df_co_anchor', category: 'defense', tier: 3, nameKey: 'df_co_anchor_name', descKey: 'df_co_anchor_desc', icon: '⚓', maxRank: 2, baseCost: 400, costMult: 1.6, parents: ['df_co_bastion'], mutexGroup: 'df_spec', mutexBranch: 'A' },
-      { id: 'df_co_reactive', category: 'defense', tier: 3, nameKey: 'df_co_reactive_name', descKey: 'df_co_reactive_desc', icon: '💥', maxRank: 3, baseCost: 450, costMult: 1.7, parents: ['df_co_anchor'], mutexGroup: 'df_spec', mutexBranch: 'A' },
-      { id: 'df_co_adamant', category: 'defense', tier: 3, nameKey: 'df_co_adamant_name', descKey: 'df_co_adamant_desc', icon: '💎', maxRank: 2, baseCost: 550, costMult: 1.8, parents: ['df_co_reactive'], mutexGroup: 'df_spec', mutexBranch: 'A' },
+      { id: 'df_co_reactive', category: 'defense', tier: 3, nameKey: 'df_co_reactive_name', descKey: 'df_co_reactive_desc', icon: 'burst', maxRank: 3, baseCost: 450, costMult: 1.7, parents: ['df_co_anchor'], mutexGroup: 'df_spec', mutexBranch: 'A' },
+      { id: 'df_co_adamant', category: 'defense', tier: 3, nameKey: 'df_co_adamant_name', descKey: 'df_co_adamant_desc', icon: 'gem', maxRank: 2, baseCost: 550, costMult: 1.8, parents: ['df_co_reactive'], mutexGroup: 'df_spec', mutexBranch: 'A' },
       { id: 'df_co_titan', category: 'defense', tier: 3, nameKey: 'df_co_titan_name', descKey: 'df_co_titan_desc', icon: '🗿', maxRank: 2, baseCost: 650, costMult: 1.8, parents: ['df_co_adamant'], mutexGroup: 'df_spec', mutexBranch: 'A' },
-      { id: 'df_co_invincible', category: 'defense', tier: 3, nameKey: 'df_co_invincible_name', descKey: 'df_co_invincible_desc', icon: '🛡️', maxRank: 1, baseCost: 950, costMult: 1.0, parents: ['df_co_titan'], mutexGroup: 'df_spec', mutexBranch: 'A' },
+      { id: 'df_co_invincible', category: 'defense', tier: 3, nameKey: 'df_co_invincible_name', descKey: 'df_co_invincible_desc', icon: 'shield', maxRank: 1, baseCost: 950, costMult: 1.0, parents: ['df_co_titan'], mutexGroup: 'df_spec', mutexBranch: 'A' },
 
       // Tier 3: Path B (Phase Ghost) - MUTEX B
       { id: 'df_gh_phase', category: 'defense', tier: 3, nameKey: 'df_gh_phase_name', descKey: 'df_gh_phase_desc', icon: '👻', maxRank: 3, baseCost: 350, costMult: 1.6, parents: ['df_barrier'], mutexGroup: 'df_spec', mutexBranch: 'B' },
       { id: 'df_gh_afterimage', category: 'defense', tier: 3, nameKey: 'df_gh_afterimage_name', descKey: 'df_gh_afterimage_desc', icon: '👤', maxRank: 3, baseCost: 400, costMult: 1.6, parents: ['df_gh_phase'], mutexGroup: 'df_spec', mutexBranch: 'B' },
-      { id: 'df_gh_speed', category: 'defense', tier: 3, nameKey: 'df_gh_speed_name', descKey: 'df_gh_speed_desc', icon: '👟', maxRank: 3, baseCost: 450, costMult: 1.7, parents: ['df_gh_afterimage'], mutexGroup: 'df_spec', mutexBranch: 'B' },
-      { id: 'df_gh_stealth', category: 'defense', tier: 3, nameKey: 'df_gh_stealth_name', descKey: 'df_gh_stealth_desc', icon: '🌫️', maxRank: 2, baseCost: 550, costMult: 1.8, parents: ['df_gh_speed'], mutexGroup: 'df_spec', mutexBranch: 'B' },
+      { id: 'df_gh_speed', category: 'defense', tier: 3, nameKey: 'df_gh_speed_name', descKey: 'df_gh_speed_desc', icon: 'dash', maxRank: 3, baseCost: 450, costMult: 1.7, parents: ['df_gh_afterimage'], mutexGroup: 'df_spec', mutexBranch: 'B' },
+      { id: 'df_gh_stealth', category: 'defense', tier: 3, nameKey: 'df_gh_stealth_name', descKey: 'df_gh_stealth_desc', icon: 'fog', maxRank: 2, baseCost: 550, costMult: 1.8, parents: ['df_gh_speed'], mutexGroup: 'df_spec', mutexBranch: 'B' },
       { id: 'df_gh_chrono', category: 'defense', tier: 3, nameKey: 'df_gh_chrono_name', descKey: 'df_gh_chrono_desc', icon: '⏳', maxRank: 2, baseCost: 650, costMult: 1.8, parents: ['df_gh_stealth'], mutexGroup: 'df_spec', mutexBranch: 'B' },
-      { id: 'df_gh_untouchable', category: 'defense', tier: 3, nameKey: 'df_gh_untouchable_name', descKey: 'df_gh_untouchable_desc', icon: '✨', maxRank: 1, baseCost: 950, costMult: 1.0, parents: ['df_gh_chrono'], mutexGroup: 'df_spec', mutexBranch: 'B' },
+      { id: 'df_gh_untouchable', category: 'defense', tier: 3, nameKey: 'df_gh_untouchable_name', descKey: 'df_gh_untouchable_desc', icon: 'spark', maxRank: 1, baseCost: 950, costMult: 1.0, parents: ['df_gh_chrono'], mutexGroup: 'df_spec', mutexBranch: 'B' },
 
       // Tier 4 (Capstones)
-      { id: 'df_phoenix_reactor', category: 'defense', tier: 4, nameKey: 'df_phoenix_reactor_name', descKey: 'df_phoenix_reactor_desc', icon: '🔥', maxRank: 1, baseCost: 1500, costMult: 1.0, parents: ['df_co_invincible', 'df_gh_untouchable'] },
+      { id: 'df_phoenix_reactor', category: 'defense', tier: 4, nameKey: 'df_phoenix_reactor_name', descKey: 'df_phoenix_reactor_desc', icon: 'fire', maxRank: 1, baseCost: 1500, costMult: 1.0, parents: ['df_co_invincible', 'df_gh_untouchable'] },
       { id: 'df_nanite_hive', category: 'defense', tier: 4, nameKey: 'df_nanite_hive_name', descKey: 'df_nanite_hive_desc', icon: '🐝', maxRank: 1, baseCost: 1800, costMult: 1.0, parents: ['df_phoenix_reactor'] },
 
       // =======================================================================
       // 3. MOBILITY TREE (26 NODES)
       // =======================================================================
       // Tier 1 (2 Gateway Starters + 4 Foundation Branches)
-      { id: 'mb_thrusters', category: 'mobility', tier: 1, nameKey: 'mb_thrusters_name', descKey: 'mb_thrusters_desc', icon: '👟', maxRank: 5, baseCost: 50, costMult: 1.4 },
-      { id: 'mb_jump_jet', category: 'mobility', tier: 1, nameKey: 'mb_jump_jet_name', descKey: 'mb_jump_jet_desc', icon: '⚡', maxRank: 5, baseCost: 60, costMult: 1.4 },
+      { id: 'mb_thrusters', category: 'mobility', tier: 1, nameKey: 'mb_thrusters_name', descKey: 'mb_thrusters_desc', icon: 'dash', maxRank: 5, baseCost: 50, costMult: 1.4 },
+      { id: 'mb_jump_jet', category: 'mobility', tier: 1, nameKey: 'mb_jump_jet_name', descKey: 'mb_jump_jet_desc', icon: 'bolt', maxRank: 5, baseCost: 60, costMult: 1.4 },
       { id: 'mb_drift', category: 'mobility', tier: 1, nameKey: 'mb_drift_name', descKey: 'mb_drift_desc', icon: '🛹', maxRank: 3, baseCost: 60, costMult: 1.4, parents: ['mb_thrusters'] },
-      { id: 'mb_stance', category: 'mobility', tier: 1, nameKey: 'mb_stance_name', descKey: 'mb_stance_desc', icon: '🎯', maxRank: 3, baseCost: 70, costMult: 1.4, parents: ['mb_thrusters'] },
-      { id: 'mb_strafe', category: 'mobility', tier: 1, nameKey: 'mb_strafe_name', descKey: 'mb_strafe_desc', icon: '🔄', maxRank: 3, baseCost: 65, costMult: 1.4, parents: ['mb_jump_jet'] },
-      { id: 'mb_boost', category: 'mobility', tier: 1, nameKey: 'mb_boost_name', descKey: 'mb_boost_desc', icon: '🚀', maxRank: 3, baseCost: 80, costMult: 1.5, parents: ['mb_jump_jet'] },
+      { id: 'mb_stance', category: 'mobility', tier: 1, nameKey: 'mb_stance_name', descKey: 'mb_stance_desc', icon: 'target', maxRank: 3, baseCost: 70, costMult: 1.4, parents: ['mb_thrusters'] },
+      { id: 'mb_strafe', category: 'mobility', tier: 1, nameKey: 'mb_strafe_name', descKey: 'mb_strafe_desc', icon: 'ricochet', maxRank: 3, baseCost: 65, costMult: 1.4, parents: ['mb_jump_jet'] },
+      { id: 'mb_boost', category: 'mobility', tier: 1, nameKey: 'mb_boost_name', descKey: 'mb_boost_desc', icon: 'rocket', maxRank: 3, baseCost: 80, costMult: 1.5, parents: ['mb_jump_jet'] },
 
       // Tier 2 (Advanced Sub-branches)
-      { id: 'mb_dash_trail', category: 'mobility', tier: 2, nameKey: 'mb_dash_trail_name', descKey: 'mb_dash_trail_desc', icon: '🔥', maxRank: 3, baseCost: 140, costMult: 1.5, parents: ['mb_thrusters'] },
-      { id: 'mb_dash_stun', category: 'mobility', tier: 2, nameKey: 'mb_dash_stun_name', descKey: 'mb_dash_stun_desc', icon: '⚡', maxRank: 2, baseCost: 180, costMult: 1.6, parents: ['mb_jump_jet'] },
-      { id: 'mb_focus_haste', category: 'mobility', tier: 2, nameKey: 'mb_focus_haste_name', descKey: 'mb_focus_haste_desc', icon: '⚙️', maxRank: 3, baseCost: 160, costMult: 1.5, parents: ['mb_stance'] },
-      { id: 'mb_focus_crit', category: 'mobility', tier: 2, nameKey: 'mb_focus_crit_name', descKey: 'mb_focus_crit_desc', icon: '🎯', maxRank: 3, baseCost: 170, costMult: 1.5, parents: ['mb_stance'] },
-      { id: 'mb_sprint_shield', category: 'mobility', tier: 2, nameKey: 'mb_sprint_shield_name', descKey: 'mb_sprint_shield_desc', icon: '🛡️', maxRank: 3, baseCost: 150, costMult: 1.5, parents: ['mb_drift'] },
-      { id: 'mb_warp', category: 'mobility', tier: 2, nameKey: 'mb_warp_name', descKey: 'mb_warp_desc', icon: '🌀', maxRank: 2, baseCost: 200, costMult: 1.7, parents: ['mb_boost'] },
+      { id: 'mb_dash_trail', category: 'mobility', tier: 2, nameKey: 'mb_dash_trail_name', descKey: 'mb_dash_trail_desc', icon: 'fire', maxRank: 3, baseCost: 140, costMult: 1.5, parents: ['mb_thrusters'] },
+      { id: 'mb_dash_stun', category: 'mobility', tier: 2, nameKey: 'mb_dash_stun_name', descKey: 'mb_dash_stun_desc', icon: 'bolt', maxRank: 2, baseCost: 180, costMult: 1.6, parents: ['mb_jump_jet'] },
+      { id: 'mb_focus_haste', category: 'mobility', tier: 2, nameKey: 'mb_focus_haste_name', descKey: 'mb_focus_haste_desc', icon: 'gear', maxRank: 3, baseCost: 160, costMult: 1.5, parents: ['mb_stance'] },
+      { id: 'mb_focus_crit', category: 'mobility', tier: 2, nameKey: 'mb_focus_crit_name', descKey: 'mb_focus_crit_desc', icon: 'target', maxRank: 3, baseCost: 170, costMult: 1.5, parents: ['mb_stance'] },
+      { id: 'mb_sprint_shield', category: 'mobility', tier: 2, nameKey: 'mb_sprint_shield_name', descKey: 'mb_sprint_shield_desc', icon: 'shield', maxRank: 3, baseCost: 150, costMult: 1.5, parents: ['mb_drift'] },
+      { id: 'mb_warp', category: 'mobility', tier: 2, nameKey: 'mb_warp_name', descKey: 'mb_warp_desc', icon: 'vortex', maxRank: 2, baseCost: 200, costMult: 1.7, parents: ['mb_boost'] },
 
       // Tier 3: Path A (Archero Sniper Focus) - MUTEX A
-      { id: 'mb_sn_nest', category: 'mobility', tier: 3, nameKey: 'mb_sn_nest_name', descKey: 'mb_sn_nest_desc', icon: '🦅', maxRank: 3, baseCost: 350, costMult: 1.6, parents: ['mb_focus_haste'], mutexGroup: 'mb_spec', mutexBranch: 'A' },
+      { id: 'mb_sn_nest', category: 'mobility', tier: 3, nameKey: 'mb_sn_nest_name', descKey: 'mb_sn_nest_desc', icon: 'falcon', maxRank: 3, baseCost: 350, costMult: 1.6, parents: ['mb_focus_haste'], mutexGroup: 'mb_spec', mutexBranch: 'A' },
       { id: 'mb_sn_calm', category: 'mobility', tier: 3, nameKey: 'mb_sn_calm_name', descKey: 'mb_sn_calm_desc', icon: '🧘', maxRank: 3, baseCost: 400, costMult: 1.6, parents: ['mb_sn_nest'], mutexGroup: 'mb_spec', mutexBranch: 'A' },
       { id: 'mb_sn_pierce', category: 'mobility', tier: 3, nameKey: 'mb_sn_pierce_name', descKey: 'mb_sn_pierce_desc', icon: '🏹', maxRank: 3, baseCost: 450, costMult: 1.7, parents: ['mb_sn_calm'], mutexGroup: 'mb_spec', mutexBranch: 'A' },
-      { id: 'mb_sn_homing', category: 'mobility', tier: 3, nameKey: 'mb_sn_homing_name', descKey: 'mb_sn_homing_desc', icon: '🎯', maxRank: 2, baseCost: 550, costMult: 1.8, parents: ['mb_sn_pierce'], mutexGroup: 'mb_spec', mutexBranch: 'A' },
-      { id: 'mb_sn_overcharge', category: 'mobility', tier: 3, nameKey: 'mb_sn_overcharge_name', descKey: 'mb_sn_overcharge_desc', icon: '⚡', maxRank: 2, baseCost: 650, costMult: 1.8, parents: ['mb_sn_homing'], mutexGroup: 'mb_spec', mutexBranch: 'A' },
-      { id: 'mb_sn_zenith', category: 'mobility', tier: 3, nameKey: 'mb_sn_zenith_name', descKey: 'mb_sn_zenith_desc', icon: '👑', maxRank: 1, baseCost: 950, costMult: 1.0, parents: ['mb_sn_overcharge'], mutexGroup: 'mb_spec', mutexBranch: 'A' },
+      { id: 'mb_sn_homing', category: 'mobility', tier: 3, nameKey: 'mb_sn_homing_name', descKey: 'mb_sn_homing_desc', icon: 'target', maxRank: 2, baseCost: 550, costMult: 1.8, parents: ['mb_sn_pierce'], mutexGroup: 'mb_spec', mutexBranch: 'A' },
+      { id: 'mb_sn_overcharge', category: 'mobility', tier: 3, nameKey: 'mb_sn_overcharge_name', descKey: 'mb_sn_overcharge_desc', icon: 'bolt', maxRank: 2, baseCost: 650, costMult: 1.8, parents: ['mb_sn_homing'], mutexGroup: 'mb_spec', mutexBranch: 'A' },
+      { id: 'mb_sn_zenith', category: 'mobility', tier: 3, nameKey: 'mb_sn_zenith_name', descKey: 'mb_sn_zenith_desc', icon: 'crown', maxRank: 1, baseCost: 950, costMult: 1.0, parents: ['mb_sn_overcharge'], mutexGroup: 'mb_spec', mutexBranch: 'A' },
 
       // Tier 3: Path B (Mobile Blitzkrieg) - MUTEX B
-      { id: 'mb_bl_momentum', category: 'mobility', tier: 3, nameKey: 'mb_bl_momentum_name', descKey: 'mb_bl_momentum_desc', icon: '🏃', maxRank: 3, baseCost: 350, costMult: 1.6, parents: ['mb_sprint_shield'], mutexGroup: 'mb_spec', mutexBranch: 'B' },
+      { id: 'mb_bl_momentum', category: 'mobility', tier: 3, nameKey: 'mb_bl_momentum_name', descKey: 'mb_bl_momentum_desc', icon: 'sprint', maxRank: 3, baseCost: 350, costMult: 1.6, parents: ['mb_sprint_shield'], mutexGroup: 'mb_spec', mutexBranch: 'B' },
       { id: 'mb_bl_drift_fire', category: 'mobility', tier: 3, nameKey: 'mb_bl_drift_fire_name', descKey: 'mb_bl_drift_fire_desc', icon: '🔫', maxRank: 3, baseCost: 400, costMult: 1.6, parents: ['mb_bl_momentum'], mutexGroup: 'mb_spec', mutexBranch: 'B' },
-      { id: 'mb_bl_static', category: 'mobility', tier: 3, nameKey: 'mb_bl_static_name', descKey: 'mb_bl_static_desc', icon: '⚡', maxRank: 3, baseCost: 450, costMult: 1.7, parents: ['mb_bl_drift_fire'], mutexGroup: 'mb_spec', mutexBranch: 'B' },
-      { id: 'mb_bl_overclock', category: 'mobility', tier: 3, nameKey: 'mb_bl_overclock_name', descKey: 'mb_bl_overclock_desc', icon: '🚀', maxRank: 2, baseCost: 550, costMult: 1.8, parents: ['mb_bl_static'], mutexGroup: 'mb_spec', mutexBranch: 'B' },
-      { id: 'mb_bl_shockwave', category: 'mobility', tier: 3, nameKey: 'mb_bl_shockwave_name', descKey: 'mb_bl_shockwave_desc', icon: '💥', maxRank: 2, baseCost: 650, costMult: 1.8, parents: ['mb_bl_overclock'], mutexGroup: 'mb_spec', mutexBranch: 'B' },
-      { id: 'mb_bl_perpetual', category: 'mobility', tier: 3, nameKey: 'mb_bl_perpetual_name', descKey: 'mb_bl_perpetual_desc', icon: '♾️', maxRank: 1, baseCost: 950, costMult: 1.0, parents: ['mb_bl_shockwave'], mutexGroup: 'mb_spec', mutexBranch: 'B' },
+      { id: 'mb_bl_static', category: 'mobility', tier: 3, nameKey: 'mb_bl_static_name', descKey: 'mb_bl_static_desc', icon: 'bolt', maxRank: 3, baseCost: 450, costMult: 1.7, parents: ['mb_bl_drift_fire'], mutexGroup: 'mb_spec', mutexBranch: 'B' },
+      { id: 'mb_bl_overclock', category: 'mobility', tier: 3, nameKey: 'mb_bl_overclock_name', descKey: 'mb_bl_overclock_desc', icon: 'rocket', maxRank: 2, baseCost: 550, costMult: 1.8, parents: ['mb_bl_static'], mutexGroup: 'mb_spec', mutexBranch: 'B' },
+      { id: 'mb_bl_shockwave', category: 'mobility', tier: 3, nameKey: 'mb_bl_shockwave_name', descKey: 'mb_bl_shockwave_desc', icon: 'burst', maxRank: 2, baseCost: 650, costMult: 1.8, parents: ['mb_bl_overclock'], mutexGroup: 'mb_spec', mutexBranch: 'B' },
+      { id: 'mb_bl_perpetual', category: 'mobility', tier: 3, nameKey: 'mb_bl_perpetual_name', descKey: 'mb_bl_perpetual_desc', icon: 'infinity', maxRank: 1, baseCost: 950, costMult: 1.0, parents: ['mb_bl_shockwave'], mutexGroup: 'mb_spec', mutexBranch: 'B' },
 
       // Tier 4 (Capstones)
       { id: 'mb_time_freeze', category: 'mobility', tier: 4, nameKey: 'mb_time_freeze_name', descKey: 'mb_time_freeze_desc', icon: '⏳', maxRank: 1, baseCost: 1500, costMult: 1.0, parents: ['mb_sn_zenith', 'mb_bl_perpetual'] },
-      { id: 'mb_tachyon_rift', category: 'mobility', tier: 4, nameKey: 'mb_tachyon_rift_name', descKey: 'mb_tachyon_rift_desc', icon: '🌌', maxRank: 1, baseCost: 1800, costMult: 1.0, parents: ['mb_time_freeze'] },
+      { id: 'mb_tachyon_rift', category: 'mobility', tier: 4, nameKey: 'mb_tachyon_rift_name', descKey: 'mb_tachyon_rift_desc', icon: 'void', maxRank: 1, baseCost: 1800, costMult: 1.0, parents: ['mb_time_freeze'] },
 
       // =======================================================================
       // 4. ECONOMY & UTILITY TREE (26 NODES)
       // =======================================================================
       // Tier 1 (2 Gateway Starters + 4 Foundation Branches)
-      { id: 'ec_magnet', category: 'economy', tier: 1, nameKey: 'ec_magnet_name', descKey: 'ec_magnet_desc', icon: '🧲', maxRank: 5, baseCost: 50, costMult: 1.4 },
-      { id: 'ec_scavenger', category: 'economy', tier: 1, nameKey: 'ec_scavenger_name', descKey: 'ec_scavenger_desc', icon: '💎', maxRank: 5, baseCost: 60, costMult: 1.4 },
+      { id: 'ec_magnet', category: 'economy', tier: 1, nameKey: 'ec_magnet_name', descKey: 'ec_magnet_desc', icon: 'magnet', maxRank: 5, baseCost: 50, costMult: 1.4 },
+      { id: 'ec_scavenger', category: 'economy', tier: 1, nameKey: 'ec_scavenger_name', descKey: 'ec_scavenger_desc', icon: 'gem', maxRank: 5, baseCost: 60, costMult: 1.4 },
       { id: 'ec_xp_booster', category: 'economy', tier: 1, nameKey: 'ec_xp_booster_name', descKey: 'ec_xp_booster_desc', icon: '🧠', maxRank: 4, baseCost: 70, costMult: 1.4, parents: ['ec_magnet'] },
-      { id: 'ec_crate_sensor', category: 'economy', tier: 1, nameKey: 'ec_crate_sensor_name', descKey: 'ec_crate_sensor_desc', icon: '📦', maxRank: 3, baseCost: 60, costMult: 1.4, parents: ['ec_magnet'] },
-      { id: 'ec_coin_multiplier', category: 'economy', tier: 1, nameKey: 'ec_coin_multiplier_name', descKey: 'ec_coin_multiplier_desc', icon: '🪙', maxRank: 3, baseCost: 65, costMult: 1.4, parents: ['ec_scavenger'] },
-      { id: 'ec_gem_magnet', category: 'economy', tier: 1, nameKey: 'ec_gem_magnet_name', descKey: 'ec_gem_magnet_desc', icon: '✨', maxRank: 3, baseCost: 75, costMult: 1.5, parents: ['ec_scavenger'] },
+      { id: 'ec_crate_sensor', category: 'economy', tier: 1, nameKey: 'ec_crate_sensor_name', descKey: 'ec_crate_sensor_desc', icon: 'box', maxRank: 3, baseCost: 60, costMult: 1.4, parents: ['ec_magnet'] },
+      { id: 'ec_coin_multiplier', category: 'economy', tier: 1, nameKey: 'ec_coin_multiplier_name', descKey: 'ec_coin_multiplier_desc', icon: 'coin', maxRank: 3, baseCost: 65, costMult: 1.4, parents: ['ec_scavenger'] },
+      { id: 'ec_gem_magnet', category: 'economy', tier: 1, nameKey: 'ec_gem_magnet_name', descKey: 'ec_gem_magnet_desc', icon: 'spark', maxRank: 3, baseCost: 75, costMult: 1.5, parents: ['ec_scavenger'] },
 
       // Tier 2 (Advanced Sub-branches)
-      { id: 'ec_reroll', category: 'economy', tier: 2, nameKey: 'ec_reroll_name', descKey: 'ec_reroll_desc', icon: '🎲', maxRank: 3, baseCost: 160, costMult: 1.6, parents: ['ec_scavenger'] },
-      { id: 'ec_lifesteal', category: 'economy', tier: 2, nameKey: 'ec_lifesteal_name', descKey: 'ec_lifesteal_desc', icon: '🩸', maxRank: 4, baseCost: 180, costMult: 1.6, parents: ['ec_xp_booster'] },
-      { id: 'ec_chest_overdrive', category: 'economy', tier: 2, nameKey: 'ec_chest_overdrive_name', descKey: 'ec_chest_overdrive_desc', icon: '🌟', maxRank: 2, baseCost: 220, costMult: 1.7, parents: ['ec_crate_sensor'] },
-      { id: 'ec_drop_purity', category: 'economy', tier: 2, nameKey: 'ec_drop_purity_name', descKey: 'ec_drop_purity_desc', icon: '💎', maxRank: 3, baseCost: 170, costMult: 1.5, parents: ['ec_gem_magnet'] },
-      { id: 'ec_nuke_radius', category: 'economy', tier: 2, nameKey: 'ec_nuke_radius_name', descKey: 'ec_nuke_radius_desc', icon: '💥', maxRank: 2, baseCost: 190, costMult: 1.6, parents: ['ec_magnet'] },
-      { id: 'ec_vacuum_pulse', category: 'economy', tier: 2, nameKey: 'ec_vacuum_pulse_name', descKey: 'ec_vacuum_pulse_desc', icon: '🧲', maxRank: 2, baseCost: 210, costMult: 1.7, parents: ['ec_coin_multiplier'] },
+      { id: 'ec_reroll', category: 'economy', tier: 2, nameKey: 'ec_reroll_name', descKey: 'ec_reroll_desc', icon: 'dice', maxRank: 3, baseCost: 160, costMult: 1.6, parents: ['ec_scavenger'] },
+      { id: 'ec_lifesteal', category: 'economy', tier: 2, nameKey: 'ec_lifesteal_name', descKey: 'ec_lifesteal_desc', icon: 'bleed', maxRank: 4, baseCost: 180, costMult: 1.6, parents: ['ec_xp_booster'] },
+      { id: 'ec_chest_overdrive', category: 'economy', tier: 2, nameKey: 'ec_chest_overdrive_name', descKey: 'ec_chest_overdrive_desc', icon: 'star', maxRank: 2, baseCost: 220, costMult: 1.7, parents: ['ec_crate_sensor'] },
+      { id: 'ec_drop_purity', category: 'economy', tier: 2, nameKey: 'ec_drop_purity_name', descKey: 'ec_drop_purity_desc', icon: 'gem', maxRank: 3, baseCost: 170, costMult: 1.5, parents: ['ec_gem_magnet'] },
+      { id: 'ec_nuke_radius', category: 'economy', tier: 2, nameKey: 'ec_nuke_radius_name', descKey: 'ec_nuke_radius_desc', icon: 'burst', maxRank: 2, baseCost: 190, costMult: 1.6, parents: ['ec_magnet'] },
+      { id: 'ec_vacuum_pulse', category: 'economy', tier: 2, nameKey: 'ec_vacuum_pulse_name', descKey: 'ec_vacuum_pulse_desc', icon: 'magnet', maxRank: 2, baseCost: 210, costMult: 1.7, parents: ['ec_coin_multiplier'] },
 
       // Tier 3: Path A (Shard Tycoon) - MUTEX A
-      { id: 'ec_ty_interest', category: 'economy', tier: 3, nameKey: 'ec_ty_interest_name', descKey: 'ec_ty_interest_desc', icon: '📈', maxRank: 3, baseCost: 350, costMult: 1.6, parents: ['ec_drop_purity'], mutexGroup: 'ec_spec', mutexBranch: 'A' },
-      { id: 'ec_ty_bounty', category: 'economy', tier: 3, nameKey: 'ec_ty_bounty_name', descKey: 'ec_ty_bounty_desc', icon: '🎯', maxRank: 3, baseCost: 400, costMult: 1.6, parents: ['ec_ty_interest'], mutexGroup: 'ec_spec', mutexBranch: 'A' },
-      { id: 'ec_ty_crate_loot', category: 'economy', tier: 3, nameKey: 'ec_ty_crate_loot_name', descKey: 'ec_ty_crate_loot_desc', icon: '📦', maxRank: 3, baseCost: 450, costMult: 1.7, parents: ['ec_ty_bounty'], mutexGroup: 'ec_spec', mutexBranch: 'A' },
-      { id: 'ec_ty_duplicator', category: 'economy', tier: 3, nameKey: 'ec_ty_duplicator_name', descKey: 'ec_ty_duplicator_desc', icon: '✨', maxRank: 2, baseCost: 550, costMult: 1.8, parents: ['ec_ty_crate_loot'], mutexGroup: 'ec_spec', mutexBranch: 'A' },
-      { id: 'ec_ty_respec_master', category: 'economy', tier: 3, nameKey: 'ec_ty_respec_master_name', descKey: 'ec_ty_respec_master_desc', icon: '🔄', maxRank: 2, baseCost: 650, costMult: 1.8, parents: ['ec_ty_duplicator'], mutexGroup: 'ec_spec', mutexBranch: 'A' },
-      { id: 'ec_ty_limitless', category: 'economy', tier: 3, nameKey: 'ec_ty_limitless_name', descKey: 'ec_ty_limitless_desc', icon: '👑', maxRank: 1, baseCost: 950, costMult: 1.0, parents: ['ec_ty_respec_master'], mutexGroup: 'ec_spec', mutexBranch: 'A' },
+      { id: 'ec_ty_interest', category: 'economy', tier: 3, nameKey: 'ec_ty_interest_name', descKey: 'ec_ty_interest_desc', icon: 'growth', maxRank: 3, baseCost: 350, costMult: 1.6, parents: ['ec_drop_purity'], mutexGroup: 'ec_spec', mutexBranch: 'A' },
+      { id: 'ec_ty_bounty', category: 'economy', tier: 3, nameKey: 'ec_ty_bounty_name', descKey: 'ec_ty_bounty_desc', icon: 'target', maxRank: 3, baseCost: 400, costMult: 1.6, parents: ['ec_ty_interest'], mutexGroup: 'ec_spec', mutexBranch: 'A' },
+      { id: 'ec_ty_crate_loot', category: 'economy', tier: 3, nameKey: 'ec_ty_crate_loot_name', descKey: 'ec_ty_crate_loot_desc', icon: 'box', maxRank: 3, baseCost: 450, costMult: 1.7, parents: ['ec_ty_bounty'], mutexGroup: 'ec_spec', mutexBranch: 'A' },
+      { id: 'ec_ty_duplicator', category: 'economy', tier: 3, nameKey: 'ec_ty_duplicator_name', descKey: 'ec_ty_duplicator_desc', icon: 'spark', maxRank: 2, baseCost: 550, costMult: 1.8, parents: ['ec_ty_crate_loot'], mutexGroup: 'ec_spec', mutexBranch: 'A' },
+      { id: 'ec_ty_respec_master', category: 'economy', tier: 3, nameKey: 'ec_ty_respec_master_name', descKey: 'ec_ty_respec_master_desc', icon: 'ricochet', maxRank: 2, baseCost: 650, costMult: 1.8, parents: ['ec_ty_duplicator'], mutexGroup: 'ec_spec', mutexBranch: 'A' },
+      { id: 'ec_ty_limitless', category: 'economy', tier: 3, nameKey: 'ec_ty_limitless_name', descKey: 'ec_ty_limitless_desc', icon: 'crown', maxRank: 1, baseCost: 950, costMult: 1.0, parents: ['ec_ty_respec_master'], mutexGroup: 'ec_spec', mutexBranch: 'A' },
 
       // Tier 3: Path B (Armory Prodigy) - MUTEX B
       { id: 'ec_ar_rarity', category: 'economy', tier: 3, nameKey: 'ec_ar_rarity_name', descKey: 'ec_ar_rarity_desc', icon: '🃏', maxRank: 3, baseCost: 350, costMult: 1.6, parents: ['ec_chest_overdrive'], mutexGroup: 'ec_spec', mutexBranch: 'B' },
       { id: 'ec_ar_banish', category: 'economy', tier: 3, nameKey: 'ec_ar_banish_name', descKey: 'ec_ar_banish_desc', icon: '🚫', maxRank: 2, baseCost: 400, costMult: 1.6, parents: ['ec_ar_rarity'], mutexGroup: 'ec_spec', mutexBranch: 'B' },
       { id: 'ec_ar_duplicate', category: 'economy', tier: 3, nameKey: 'ec_ar_duplicate_name', descKey: 'ec_ar_duplicate_desc', icon: '♊', maxRank: 2, baseCost: 450, costMult: 1.7, parents: ['ec_ar_banish'], mutexGroup: 'ec_spec', mutexBranch: 'B' },
-      { id: 'ec_ar_weapon_slots', category: 'economy', tier: 3, nameKey: 'ec_ar_weapon_slots_name', descKey: 'ec_ar_weapon_slots_desc', icon: '⚔️', maxRank: 2, baseCost: 550, costMult: 1.8, parents: ['ec_ar_duplicate'], mutexGroup: 'ec_spec', mutexBranch: 'B' },
+      { id: 'ec_ar_weapon_slots', category: 'economy', tier: 3, nameKey: 'ec_ar_weapon_slots_name', descKey: 'ec_ar_weapon_slots_desc', icon: 'sword', maxRank: 2, baseCost: 550, costMult: 1.8, parents: ['ec_ar_duplicate'], mutexGroup: 'ec_spec', mutexBranch: 'B' },
       { id: 'ec_ar_master_smith', category: 'economy', tier: 3, nameKey: 'ec_ar_master_smith_name', descKey: 'ec_ar_master_smith_desc', icon: '🔨', maxRank: 2, baseCost: 650, costMult: 1.8, parents: ['ec_ar_weapon_slots'], mutexGroup: 'ec_spec', mutexBranch: 'B' },
-      { id: 'ec_ar_evolution', category: 'economy', tier: 3, nameKey: 'ec_ar_evolution_name', descKey: 'ec_ar_evolution_desc', icon: '🌟', maxRank: 1, baseCost: 950, costMult: 1.0, parents: ['ec_ar_master_smith'], mutexGroup: 'ec_spec', mutexBranch: 'B' },
+      { id: 'ec_ar_evolution', category: 'economy', tier: 3, nameKey: 'ec_ar_evolution_name', descKey: 'ec_ar_evolution_desc', icon: 'star', maxRank: 1, baseCost: 950, costMult: 1.0, parents: ['ec_ar_master_smith'], mutexGroup: 'ec_spec', mutexBranch: 'B' },
 
       // Tier 4 (Capstones)
-      { id: 'ec_ascension', category: 'economy', tier: 4, nameKey: 'ec_ascension_name', descKey: 'ec_ascension_desc', icon: '👑', maxRank: 1, baseCost: 1500, costMult: 1.0, parents: ['ec_ty_limitless', 'ec_ar_evolution'] },
-      { id: 'ec_cosmic_magnet', category: 'economy', tier: 4, nameKey: 'ec_cosmic_magnet_name', descKey: 'ec_cosmic_magnet_desc', icon: '🌌', maxRank: 1, baseCost: 1800, costMult: 1.0, parents: ['ec_ascension'] },
+      { id: 'ec_ascension', category: 'economy', tier: 4, nameKey: 'ec_ascension_name', descKey: 'ec_ascension_desc', icon: 'crown', maxRank: 1, baseCost: 1500, costMult: 1.0, parents: ['ec_ty_limitless', 'ec_ar_evolution'] },
+      { id: 'ec_cosmic_magnet', category: 'economy', tier: 4, nameKey: 'ec_cosmic_magnet_name', descKey: 'ec_cosmic_magnet_desc', icon: 'void', maxRank: 1, baseCost: 1800, costMult: 1.0, parents: ['ec_ascension'] },
     ];
 
     rawNodes.forEach((n) => {

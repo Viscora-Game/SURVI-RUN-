@@ -548,7 +548,7 @@ export class Enemy extends Entity {
       ctx.font = 'bold 9px Orbitron, sans-serif';
       ctx.fillStyle = '#fbbf24';
       ctx.textAlign = 'center';
-      ctx.fillText('★ ELİT ★', 0, -this.radius - 14);
+      ctx.fillText('ELITE', 0, -this.radius - 14);
       ctx.shadowBlur = 0;
       ctx.rotate(this.rotation + Math.PI / 2); // restore for health bar
     }

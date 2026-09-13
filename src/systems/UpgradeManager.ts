@@ -9,21 +9,21 @@ export class UpgradeManager {
     const t = i18n.t;
     switch (id) {
       case 'plasma_blaster':
-        return { name: t.w_plasma_blaster_name, icon: '⚡', desc: t.w_plasma_blaster_desc };
+        return { name: t.w_plasma_blaster_name, icon: 'bolt', desc: t.w_plasma_blaster_desc };
       case 'orbiting_blades':
-        return { name: t.w_orbiting_blades_name, icon: '⚔️', desc: t.w_orbiting_blades_desc };
+        return { name: t.w_orbiting_blades_name, icon: 'sword', desc: t.w_orbiting_blades_desc };
       case 'lightning_coil':
-        return { name: t.w_lightning_coil_name, icon: '⚡', desc: t.w_lightning_coil_desc };
+        return { name: t.w_lightning_coil_name, icon: 'bolt', desc: t.w_lightning_coil_desc };
       case 'toxic_aura':
-        return { name: t.w_toxic_aura_name, icon: '☣️', desc: t.w_toxic_aura_desc };
+        return { name: t.w_toxic_aura_name, icon: 'atom', desc: t.w_toxic_aura_desc };
       case 'seeker_missiles':
-        return { name: t.w_seeker_missiles_name, icon: '🚀', desc: t.w_seeker_missiles_desc };
+        return { name: t.w_seeker_missiles_name, icon: 'rocket', desc: t.w_seeker_missiles_desc };
       case 'scatter_cannon':
-        return { name: t.w_scatter_cannon_name, icon: '💥', desc: t.w_scatter_cannon_desc };
+        return { name: t.w_scatter_cannon_name, icon: 'fire', desc: t.w_scatter_cannon_desc };
       case 'piercing_laser':
-        return { name: t.w_piercing_laser_name, icon: '🔮', desc: t.w_piercing_laser_desc };
+        return { name: t.w_piercing_laser_name, icon: 'crosshair', desc: t.w_piercing_laser_desc };
       default:
-        return { name: id, icon: '⚡', desc: '' };
+        return { name: id, icon: 'bolt', desc: '' };
     }
   }
 
@@ -31,21 +31,21 @@ export class UpgradeManager {
     const t = i18n.t;
     switch (id) {
       case 'quantum_obliterator':
-        return { name: t.evo_quantum_obliterator_name, icon: '⚡', desc: t.evo_quantum_obliterator_desc };
+        return { name: t.evo_quantum_obliterator_name, icon: 'bolt', desc: t.evo_quantum_obliterator_desc };
       case 'tachyon_vortex':
-        return { name: t.evo_tachyon_vortex_name, icon: '🌀', desc: t.evo_tachyon_vortex_desc };
+        return { name: t.evo_tachyon_vortex_name, icon: 'refresh', desc: t.evo_tachyon_vortex_desc };
       case 'judgement_tempest':
-        return { name: t.evo_judgement_tempest_name, icon: '⚡', desc: t.evo_judgement_tempest_desc };
+        return { name: t.evo_judgement_tempest_name, icon: 'bolt', desc: t.evo_judgement_tempest_desc };
       case 'nanite_plague':
-        return { name: t.evo_nanite_plague_name, icon: '☣️', desc: t.evo_nanite_plague_desc };
+        return { name: t.evo_nanite_plague_name, icon: 'atom', desc: t.evo_nanite_plague_desc };
       case 'doomsday_icbm':
-        return { name: t.evo_doomsday_icbm_name, icon: '🚀', desc: t.evo_doomsday_icbm_desc };
+        return { name: t.evo_doomsday_icbm_name, icon: 'rocket', desc: t.evo_doomsday_icbm_desc };
       case 'flak_fortress':
-        return { name: t.evo_flak_fortress_name, icon: '💥', desc: t.evo_flak_fortress_desc };
+        return { name: t.evo_flak_fortress_name, icon: 'fire', desc: t.evo_flak_fortress_desc };
       case 'orbital_death_ray':
-        return { name: t.evo_orbital_death_ray_name, icon: '🔮', desc: t.evo_orbital_death_ray_desc };
+        return { name: t.evo_orbital_death_ray_name, icon: 'crosshair', desc: t.evo_orbital_death_ray_desc };
       default:
-        return { name: id, icon: '⚡', desc: '' };
+        return { name: id, icon: 'bolt', desc: '' };
     }
   }
 
@@ -53,23 +53,23 @@ export class UpgradeManager {
     const t = i18n.t;
     switch (id) {
       case 'overclock':
-        return { name: t.p_overclock_name, icon: '⚙️', desc: t.p_overclock_desc };
+        return { name: t.p_overclock_name, icon: 'gear', desc: t.p_overclock_desc };
       case 'titan_armor':
-        return { name: t.p_titan_armor_name, icon: '🛡️', desc: t.p_titan_armor_desc };
+        return { name: t.p_titan_armor_name, icon: 'shield', desc: t.p_titan_armor_desc };
       case 'nano_magnet':
-        return { name: t.p_nano_magnet_name, icon: '🧲', desc: t.p_nano_magnet_desc };
+        return { name: t.p_nano_magnet_name, icon: 'magnet', desc: t.p_nano_magnet_desc };
       case 'vampire_chip':
-        return { name: t.p_vampire_chip_name, icon: '🩸', desc: t.p_vampire_chip_desc };
+        return { name: t.p_vampire_chip_name, icon: 'heart', desc: t.p_vampire_chip_desc };
       case 'nitro_thruster':
-        return { name: t.p_nitro_thruster_name, icon: '👟', desc: t.p_nitro_thruster_desc };
+        return { name: t.p_nitro_thruster_name, icon: 'zap', desc: t.p_nitro_thruster_desc };
       case 'targeting_cpu':
-        return { name: t.p_targeting_cpu_name, icon: '🎯', desc: t.p_targeting_cpu_desc };
+        return { name: t.p_targeting_cpu_name, icon: 'target', desc: t.p_targeting_cpu_desc };
       case 'energy_core':
-        return { name: t.p_energy_core_name, icon: '🔋', desc: t.p_energy_core_desc };
+        return { name: t.p_energy_core_name, icon: 'bolt', desc: t.p_energy_core_desc };
       case 'multi_barrel':
-        return { name: t.p_multi_barrel_name, icon: '🌀', desc: t.p_multi_barrel_desc };
+        return { name: t.p_multi_barrel_name, icon: 'refresh', desc: t.p_multi_barrel_desc };
       default:
-        return { name: id, icon: '🛡️', desc: '' };
+        return { name: id, icon: 'shield', desc: '' };
     }
   }
 
@@ -196,7 +196,7 @@ export class UpgradeManager {
           description: t.p_heal_desc,
           level: 1,
           rarity: 'epic',
-          icon: '❤️',
+          icon: 'heart',
         },
       ];
     }

@@ -1,3 +1,4 @@
+import { icon } from './Icons';
 import { achievementManager } from '../systems/AchievementManager';
 import { skillTree } from '../systems/SkillTree';
 import { i18n } from '../i18n';
@@ -61,12 +62,12 @@ export class AchievementsUI {
       <div class="drawer-content achievements-drawer-content">
         <div class="drawer-header">
           <div class="header-left">
-            <h2>🏆 ${t.achievementsTitle}</h2>
+            <h2>${icon('trophy', 22)} ${t.achievementsTitle}</h2>
             <span class="sub-label">${t.achievementsSummary || 'Achievements Progress'}: ${unlockedCount}/${totalCount} (${overallProgressPercent}%)</span>
           </div>
           <div class="header-right">
-            <span class="shard-badge">💎 <strong id="ach-shards-display">${shards.toLocaleString()}</strong></span>
-            <button id="close-ach-btn" class="drawer-close-btn">✕</button>
+            <span class="shard-badge">${icon('gem', 14)} <strong id="ach-shards-display">${shards.toLocaleString()}</strong></span>
+            <button id="close-ach-btn" class="drawer-close-btn" aria-label="Close">${icon('close', 14)}</button>
           </div>
         </div>
 
@@ -86,10 +87,10 @@ export class AchievementsUI {
             ${
               unclaimedShards > 0
                 ? `<button id="btn-claim-all-ach" class="ach-claim-all-btn active-pulse">
-                    ✨ ${t.achievementsClaimAll || 'CLAIM ALL'} (+${unclaimedShards.toLocaleString()} 💎)
+                    ${icon('sparkle', 14)} ${t.achievementsClaimAll || 'CLAIM ALL'} (+${unclaimedShards.toLocaleString()} ${icon('gem', 12)})
                    </button>`
                 : `<button class="ach-claim-all-btn disabled" disabled>
-                    ✓ ${t.achievementsAllClaimed || 'ALL REWARDS CLAIMED'}
+                    ${icon('check', 14)} ${t.achievementsAllClaimed || 'ALL REWARDS CLAIMED'}
                    </button>`
             }
           </div>
@@ -123,13 +124,13 @@ export class AchievementsUI {
                     return `
                       <div class="ach-card ${ach.claimed ? 'claimed' : (ach.unlocked ? 'unlocked' : 'locked')}">
                         <div class="ach-icon-col">
-                          <div class="ach-icon-circle ${ach.unlocked ? 'unlocked-glow' : ''}">${ach.icon}</div>
+                          <div class="ach-icon-circle ${ach.unlocked ? 'unlocked-glow' : ''}">${icon(ach.icon, 20) || ach.icon}</div>
                         </div>
 
                         <div class="ach-info-col">
                           <div class="ach-top-row">
                             <h4 class="ach-name">${name}</h4>
-                            <span class="ach-reward-tag">+${ach.rewardShards} 💎</span>
+                            <span class="ach-reward-tag">+${ach.rewardShards} ${icon('gem', 12)}</span>
                           </div>
                           <p class="ach-desc">${desc}</p>
                           <div class="ach-progress-wrapper">
@@ -145,10 +146,10 @@ export class AchievementsUI {
                         <div class="ach-action-col">
                           ${
                             ach.claimed
-                              ? `<span class="ach-badge-claimed">✓ ${t.rewardClaimed}</span>`
+                              ? `<span class="ach-badge-claimed">${icon('check', 13)} ${t.rewardClaimed}</span>`
                               : ach.unlocked
-                              ? `<button class="ach-claim-btn" data-id="${ach.id}">🎁 ${t.claimReward}</button>`
-                              : `<span class="ach-badge-locked">🔒 ${progressPercent}%</span>`
+                              ? `<button class="ach-claim-btn" data-id="${ach.id}">${icon('gift', 14)} ${t.claimReward}</button>`
+                              : `<span class="ach-badge-locked">${icon('lock', 12)} ${progressPercent}%</span>`
                           }
                         </div>
                       </div>

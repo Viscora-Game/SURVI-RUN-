@@ -1,3 +1,4 @@
+import { icon } from './Icons';
 import { SHIP_CONFIGS } from '../entities/ShipConfig';
 import { PixelArtRenderer } from '../rendering/PixelArtRenderer';
 import { skillTree } from '../systems/SkillTree';
@@ -72,12 +73,12 @@ export class HangarUI {
       <div class="drawer-content hangar-drawer-content">
         <div class="drawer-header">
           <div class="header-left">
-            <h2>🚀 ${t.hangarTitle}</h2>
+            <h2>${icon('rocket', 20)} ${t.hangarTitle}</h2>
             <span class="sub-label">${t.hangarSubtitle}</span>
           </div>
           <div class="header-right">
-            <span class="shard-badge">💎 <strong id="hangar-shards-display">${shards.toLocaleString()}</strong></span>
-            <button id="close-hangar-btn" class="drawer-close-btn">✕</button>
+            <span class="shard-badge">${icon('gem', 14)} <strong id="hangar-shards-display">${shards.toLocaleString()}</strong></span>
+            <button id="close-hangar-btn" class="drawer-close-btn" aria-label="Close">${icon('close', 14)}</button>
           </div>
         </div>
 
@@ -121,7 +122,7 @@ export class HangarUI {
 
                 <div class="ship-tactical-perk-badge">
                   <div class="perk-header">
-                    <span class="perk-icon">⚡</span>
+                    <span class="perk-icon">${icon('bolt', 13)}</span>
                     <span class="perk-label">${t.hangarSpecialPerk || 'Tactical Trait'}: <strong>${t[cfg.specialPerkKey] || ''}</strong></span>
                   </div>
                   <p class="perk-desc">${t[cfg.specialPerkDescKey] || ''}</p>
@@ -161,11 +162,11 @@ export class HangarUI {
                 <div class="ship-card-action">
                   ${
                     isSelected
-                      ? `<button class="ship-action-btn btn-active" disabled>✓ ${t.hangarSelected}</button>`
+                      ? `<button class="ship-action-btn btn-active" disabled>${icon('check', 13)} ${t.hangarSelected}</button>`
                       : isUnlocked
-                      ? `<button class="ship-action-btn btn-select" data-ship="${shipId}">🚀 ${t.hangarSelect}</button>`
+                      ? `<button class="ship-action-btn btn-select" data-ship="${shipId}">${icon('rocket', 14)} ${t.hangarSelect}</button>`
                       : `<button class="ship-action-btn btn-unlock" data-ship="${shipId}" data-cost="${cfg.cost}">
-                          🔓 ${t.hangarUnlock} (💎 ${cfg.cost})
+                          ${icon('unlock', 13)} ${t.hangarUnlock} (${icon('gem', 12)} ${cfg.cost})
                         </button>`
                   }
                 </div>

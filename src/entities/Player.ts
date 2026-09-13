@@ -316,25 +316,33 @@ export class Player extends Entity {
     this.stats.hp = Math.min(this.stats.maxHp, this.stats.hp + effAmount);
   }
 
+  public pendingLevelUps: number = 0;
+
   public addXp(amount: number): boolean {
     const finalAmount = Math.round(amount * this.xpMultiplier);
     this.currentXp += finalAmount;
     sounds.playGem();
 
-    if (this.currentXp >= this.requiredXp) {
+    let didLevelUp = false;
+    while (this.currentXp >= this.requiredXp) {
       this.currentXp -= this.requiredXp;
       this.level++;
       this.requiredXp = Math.round(this.requiredXp * 1.25 + 10);
-      sounds.playLevelUp();
+
+      if (!didLevelUp) {
+        didLevelUp = true;
+        sounds.playLevelUp();
+      } else {
+        this.pendingLevelUps++;
+      }
 
       if (this.infiniteAscension && this.level >= 25) {
         this.stats.damageMult += 0.03;
         this.stats.maxHp += 5;
         this.stats.hp += 5;
       }
-      return true;
     }
-    return false;
+    return didLevelUp;
   }
 
   public dash(): boolean {

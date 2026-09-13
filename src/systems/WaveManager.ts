@@ -333,8 +333,9 @@ export class WaveManager {
     sounds.triggerHaptic('boss');
 
     if (this.onAnnouncement) {
+      const prefix = i18n.lang === 'tr' ? '[TEHLİKE]' : '[ALERT]';
       const verb = i18n.lang === 'tr' ? 'BÖLGEYE GİRDİ!' : 'SPAWNED!';
-      this.onAnnouncement(`⚠️ ${name} [${title}] ${verb} ⚠️`);
+      this.onAnnouncement(`${prefix} ${name} [${title}] ${verb}`);
     }
   }
 

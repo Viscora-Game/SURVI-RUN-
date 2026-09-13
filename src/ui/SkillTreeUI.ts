@@ -1,3 +1,4 @@
+import { icon } from './Icons';
 import { skillTree, type SkillTreeCategory, type SkillNode } from '../systems/SkillTree';
 import { ConstellationRenderer, type Viewport } from '../rendering/ConstellationRenderer';
 import { SkillGlyphRenderer } from '../rendering/SkillGlyphRenderer';
@@ -115,23 +116,23 @@ export class SkillTreeUI {
           <!-- Quadrant Quick Jump Navigation Pills -->
           <div class="cluster-nav-pills">
             <button class="cluster-pill btn-warfare" data-cluster="warfare" id="pill-btn-warfare" title="${t.tipWarfare}">
-              <span class="pill-icon">⚔️</span>
+              <span class="pill-icon">${icon('warfare', 16)}</span>
               <span class="pill-text" id="pill-warfare">${t.cat_warfare}</span>
             </button>
             <button class="cluster-pill btn-defense" data-cluster="defense" id="pill-btn-defense" title="${t.tipDefense}">
-              <span class="pill-icon">🛡️</span>
+              <span class="pill-icon">${icon('defense', 16)}</span>
               <span class="pill-text" id="pill-defense">${t.cat_defense}</span>
             </button>
             <button class="cluster-pill btn-mobility" data-cluster="mobility" id="pill-btn-mobility" title="${t.tipMobility}">
-              <span class="pill-icon">⚡</span>
+              <span class="pill-icon">${icon('mobility', 16)}</span>
               <span class="pill-text" id="pill-mobility">${t.cat_mobility}</span>
             </button>
             <button class="cluster-pill btn-economy" data-cluster="economy" id="pill-btn-economy" title="${t.tipEconomy}">
-              <span class="pill-icon">💎</span>
+              <span class="pill-icon">${icon('economy', 16)}</span>
               <span class="pill-text" id="pill-economy">${t.cat_economy}</span>
             </button>
             <button class="cluster-pill btn-nexus" data-cluster="nexus" id="pill-btn-nexus" title="${t.tipNexus}">
-              <span class="pill-icon">🎯</span>
+              <span class="pill-icon">${icon('nexus', 16)}</span>
               <span class="pill-text" id="pill-nexus">${t.nexusLabel}</span>
             </button>
           </div>
@@ -139,22 +140,22 @@ export class SkillTreeUI {
           <!-- Top-Right Wallet & Actions -->
           <div class="constellation-right-bar">
             <div class="constellation-stat-badge shard-badge" id="st-shards-badge" title="${t.tipShards}">
-              <span class="badge-icon">💎</span>
+              <span class="badge-icon">${icon('gem', 14)}</span>
               <strong id="st-shards-display" class="badge-val">${shards.toLocaleString()}</strong>
               <span class="badge-unit" id="st-shards-unit">${t.shardsUnit}</span>
             </div>
 
             <div class="constellation-stat-badge points-badge" id="st-points-badge" title="${t.tipPoints}">
-              <span class="badge-icon">⭐</span>
+              <span class="badge-icon">${icon('star', 14)}</span>
               <strong id="st-points-display" class="badge-val">${allocated} / 104</strong>
             </div>
 
             <button id="st-respec-btn" class="constellation-action-btn respec-btn" title="${t.tipRespec}">
-              <span class="btn-icon">🔄</span>
+              <span class="btn-icon">${icon('refresh', 14)}</span>
               <span id="st-respec-text">${t.respecBtn}</span>
             </button>
 
-            <button id="st-close-btn" class="constellation-close-btn" title="${t.tipClose}">✕</button>
+            <button id="st-close-btn" class="constellation-close-btn" title="${t.tipClose}" aria-label="Close">${icon('close', 14)}</button>
           </div>
         </div>
 
@@ -163,14 +164,14 @@ export class SkillTreeUI {
           <div class="zoom-controls">
             <button id="st-zoom-in" class="zoom-btn" title="${t.tipZoomIn}">+</button>
             <button id="st-zoom-out" class="zoom-btn" title="${t.tipZoomOut}">-</button>
-            <button id="st-recenter" class="zoom-btn center-btn" title="${t.tipRecenter}">🎯</button>
+            <button id="st-recenter" class="zoom-btn center-btn" title="${t.tipRecenter}">${icon('target', 14)}</button>
           </div>
           <div class="controls-legend" id="st-controls-legend">
-            <span>🖱️ <strong id="lbl-drag">${t.legendDrag}</strong> ${t.legendDragAction}</span>
+            <span>${icon('mouse', 14)} <strong id="lbl-drag">${t.legendDrag}</strong> ${t.legendDragAction}</span>
             <span class="legend-sep">•</span>
-            <span>🔍 <strong id="lbl-scroll">${t.legendScroll}</strong> ${t.legendScrollAction}</span>
+            <span>${icon('search', 14)} <strong id="lbl-scroll">${t.legendScroll}</strong> ${t.legendScrollAction}</span>
             <span class="legend-sep">•</span>
-            <span>⚡ <strong id="lbl-click">${t.legendClick}</strong> ${t.legendClickAction}</span>
+            <span>${icon('bolt', 14)} <strong id="lbl-click">${t.legendClick}</strong> ${t.legendClickAction}</span>
           </div>
         </div>
 
@@ -261,11 +262,11 @@ export class SkillTreeUI {
     const legendEl = document.getElementById('st-controls-legend');
     if (legendEl) {
       legendEl.innerHTML = `
-        <span>🖱️ <strong id="lbl-drag">${t.legendDrag}</strong> ${t.legendDragAction}</span>
+        <span>${icon('mouse', 14)} <strong id="lbl-drag">${t.legendDrag}</strong> ${t.legendDragAction}</span>
         <span class="legend-sep">•</span>
-        <span>🔍 <strong id="lbl-scroll">${t.legendScroll}</strong> ${t.legendScrollAction}</span>
+        <span>${icon('search', 14)} <strong id="lbl-scroll">${t.legendScroll}</strong> ${t.legendScrollAction}</span>
         <span class="legend-sep">•</span>
-        <span>⚡ <strong id="lbl-click">${t.legendClick}</strong> ${t.legendClickAction}</span>
+        <span>${icon('bolt', 14)} <strong id="lbl-click">${t.legendClick}</strong> ${t.legendClickAction}</span>
       `;
     }
   }
@@ -554,13 +555,13 @@ export class SkillTreeUI {
     } else if (canAfford) {
       statusHtml = `
         <div class="tooltip-status status-available">
-          <span class="cost-tag">💎 ${cost} ${t.shardsUnit}</span>
+          <span class="cost-tag">${icon('gem', 12)} ${cost} ${t.shardsUnit}</span>
           <span class="prompt-tag">${t.promptUpgrade}</span>
         </div>`;
     } else {
       statusHtml = `
         <div class="tooltip-status status-unaffordable">
-          <span class="cost-tag">💎 ${cost} ${t.shardsUnit}</span>
+          <span class="cost-tag">${icon('gem', 12)} ${cost} ${t.shardsUnit}</span>
           <span class="prompt-tag">${t.promptInsufficient}</span>
         </div>`;
     }
@@ -603,7 +604,7 @@ export class SkillTreeUI {
     if (!this.tooltipEl) return;
     const pad = 18;
     const tw = 320;
-    const th = 220;
+    const th = 290;
 
     let posX = screenX + pad;
     let posY = screenY + pad;

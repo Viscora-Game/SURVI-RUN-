@@ -26,7 +26,7 @@ export const SECTORS: Record<SectorId, SectorConfig> = {
     id: 'neo_kyoto',
     nameKey: 'sector_neo_kyoto_name',
     descKey: 'sector_neo_kyoto_desc',
-    icon: '🏙️',
+    icon: 'compass',
     difficulty: 1,
     xpMult: 1.0,
     shardMult: 1.0,
@@ -42,7 +42,7 @@ export const SECTORS: Record<SectorId, SectorConfig> = {
     id: 'chem_slums',
     nameKey: 'sector_chem_slums_name',
     descKey: 'sector_chem_slums_desc',
-    icon: '🧪',
+    icon: 'atom',
     difficulty: 2,
     xpMult: 1.25,
     shardMult: 1.35,
@@ -58,7 +58,7 @@ export const SECTORS: Record<SectorId, SectorConfig> = {
     id: 'magma_core',
     nameKey: 'sector_magma_core_name',
     descKey: 'sector_magma_core_desc',
-    icon: '🔥',
+    icon: 'fire',
     difficulty: 3,
     xpMult: 1.5,
     shardMult: 1.75,
@@ -74,7 +74,7 @@ export const SECTORS: Record<SectorId, SectorConfig> = {
     id: 'orbital_void',
     nameKey: 'sector_orbital_void_name',
     descKey: 'sector_orbital_void_desc',
-    icon: '🌌',
+    icon: 'sparkle',
     difficulty: 4,
     xpMult: 2.0,
     shardMult: 2.5,
@@ -589,7 +589,7 @@ export class MapManager {
     ctx.font = 'bold 9px "Orbitron", monospace';
     ctx.fillStyle = this.currentSector.accentColor;
     ctx.textAlign = 'center';
-    ctx.fillText(`${this.currentSector.icon} RADAR`, radarCx, radarCy + radarRadius + 14);
+    ctx.fillText('SECTOR RADAR', radarCx, radarCy + radarRadius + 14);
 
     ctx.restore();
   }

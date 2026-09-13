@@ -140,7 +140,7 @@ export abstract class Weapon {
 // 1. Plasma Blaster: Rapid auto-aiming energy bolts
 export class PlasmaBlaster extends Weapon {
   constructor() {
-    super('plasma_blaster', 'Plasma Blaster', 0.65, '⚡');
+    super('plasma_blaster', 'Plasma Blaster', 0.65, 'bolt');
   }
 
   public update(ctx: WeaponContext): void {
@@ -201,7 +201,7 @@ export class OrbitingBlades extends Weapon {
   private hitCooldowns: Map<number, number> = new Map();
 
   constructor() {
-    super('orbiting_blades', 'Orbiting Blades', 0.01, '⚔️');
+    super('orbiting_blades', 'Orbiting Blades', 0.01, 'sword');
   }
 
   public update(ctx: WeaponContext): void {
@@ -290,7 +290,7 @@ export class OrbitingBlades extends Weapon {
 // 3. Lightning Coil: Zaps random targets with chaining arcs
 export class LightningCoil extends Weapon {
   constructor() {
-    super('lightning_coil', 'Lightning Coil', 1.8, '⚡');
+    super('lightning_coil', 'Lightning Coil', 1.8, 'bolt');
   }
 
   public update(ctx: WeaponContext): void {
@@ -355,7 +355,7 @@ export class ToxicAura extends Weapon {
   private tickTimer: number = 0;
 
   constructor() {
-    super('toxic_aura', 'Toxic Aura', 0.4, '☣️');
+    super('toxic_aura', 'Toxic Aura', 0.4, 'atom');
   }
 
   public update(ctx: WeaponContext): void {
@@ -413,7 +413,7 @@ export class ToxicAura extends Weapon {
 // 5. Seeker Missiles: Heat-seeking rockets that explode in AoE
 export class SeekerMissiles extends Weapon {
   constructor() {
-    super('seeker_missiles', 'Seeker Missiles', 1.6, '🚀');
+    super('seeker_missiles', 'Seeker Missiles', 1.6, 'rocket');
   }
 
   public update(ctx: WeaponContext): void {
@@ -598,7 +598,7 @@ export class QuantumObliterator extends Weapon {
   private sweepAngle: number = 0;
 
   constructor() {
-    super('quantum_obliterator', 'Quantum Obliterator', 0.09, '⚡', true);
+    super('quantum_obliterator', 'Quantum Obliterator', 0.09, 'bolt', true);
   }
 
   public update(ctx: WeaponContext): void {
@@ -752,7 +752,7 @@ export class TachyonVortex extends Weapon {
 // 3. Judgement Tempest (Lightning Coil + Targeting CPU)
 export class JudgementTempest extends Weapon {
   constructor() {
-    super('judgement_tempest', 'Judgement Tempest', 0.85, '⚡', true);
+    super('judgement_tempest', 'Judgement Tempest', 0.85, 'bolt', true);
   }
 
   public update(ctx: WeaponContext): void {
@@ -793,7 +793,7 @@ export class NanitePlague extends Weapon {
   private tickTimer: number = 0;
 
   constructor() {
-    super('nanite_plague', 'Nanite Plague', 0.25, '☣️', true);
+    super('nanite_plague', 'Nanite Plague', 0.25, 'atom', true);
   }
 
   public update(ctx: WeaponContext): void {
@@ -857,7 +857,7 @@ export class NanitePlague extends Weapon {
 // 5. Doomsday ICBM (Seeker Missiles + Energy Core)
 export class DoomsdayICBM extends Weapon {
   constructor() {
-    super('doomsday_icbm', 'Doomsday ICBM', 1.15, '🚀', true);
+    super('doomsday_icbm', 'Doomsday ICBM', 1.15, 'rocket', true);
   }
 
   public update(ctx: WeaponContext): void {

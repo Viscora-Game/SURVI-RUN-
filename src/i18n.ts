@@ -303,14 +303,14 @@ const en: Translations = {
   rankLabel: 'RANK:',
 
   // Skill Node Tags
-  tagMinor: '🔹 MINOR SKILL',
-  tagNotable: '💠 NOTABLE SKILL',
-  tagKeystone: '👑 KEYSTONE MASTERY',
+  tagMinor: '[MINOR] BASIC SKILL',
+  tagNotable: '[NOTABLE] ADVANCED SKILL',
+  tagKeystone: '[KEYSTONE] MASTERY',
 
   // Tooltip Statuses
-  statusMaxed: '✓ MAX RANK',
-  statusMutex: '⛔ LOCKED: Opposite specialization chosen!',
-  statusPrereq: '🔒 LOCKED: Prerequisite skill required',
+  statusMaxed: 'MAX RANK',
+  statusMutex: 'LOCKED: Opposite specialization chosen!',
+  statusPrereq: 'LOCKED: Prerequisite skill required',
   promptUpgrade: 'CLICK TO UPGRADE',
   promptInsufficient: '(Insufficient Shards)',
 
@@ -346,7 +346,7 @@ const en: Translations = {
 
   // Sectors
   sectorTag: 'OPERATIONAL ZONES',
-  activeSector: '✓ ACTIVE SECTOR',
+  activeSector: 'ACTIVE SECTOR',
   selectSector: 'SELECT SECTOR',
   hazardRating: 'Hazard Rating',
 
@@ -451,15 +451,15 @@ const en: Translations = {
   dashCooling: 'RECHARGING',
   focusBuff: 'FOCUS +30% SPD',
 
-  bossAlert: '⚠️ ALERT: TITAN MECH HAS ENTERED THE SECTOR! ⚠️',
-  vacuumAlert: '🧲 VACUUM PULSE ACTIVATED!',
-  nukeAlert: '💥 TACTICAL NUKE DETONATED! 💥',
-  shieldReviveAlert: '🛡️ EMERGENCY DEFLECTOR ACTIVATED! (3s IMMUNITY)',
+  bossAlert: 'ALERT: TITAN MECH HAS ENTERED THE SECTOR!',
+  vacuumAlert: 'VACUUM PULSE ACTIVATED!',
+  nukeAlert: 'TACTICAL NUKE DETONATED!',
+  shieldReviveAlert: 'EMERGENCY DEFLECTOR ACTIVATED! (3s IMMUNITY)',
 
   levelUpTitle: 'SYSTEM UPGRADE',
   levelUpSubtitle: 'Select module enhancement:',
   cardHint: 'Press key or click',
-  chestTitle: '🌟 GOLDEN CACHE SECURED! 🌟',
+  chestTitle: 'GOLDEN CACHE SECURED!',
   chestCollect: 'CLAIM UPGRADES',
   gameOverTitle: 'MISSION TERMINATED',
   timeSurvived: 'Time Survived:',
@@ -508,7 +508,7 @@ const en: Translations = {
   p_heal_desc: 'Instantly restores 50 Health.',
 
   // Ships & Hangar
-  hangarBtn: '🚀 HANGAR',
+  hangarBtn: 'HANGAR',
   hangarTitle: 'FLEET HANGAR',
   hangarSubtitle: 'SHIP DOCK & VESSEL SELECTION',
   hangarSelect: 'DEPLOY SHIP',
@@ -576,7 +576,7 @@ const en: Translations = {
   achievementsAllClaimed: 'ALL REWARDS CLAIMED',
 
   // Evolutions
-  evo_badge: '⚡ EVOLUTION',
+  evo_badge: 'EVOLUTION',
   evo_quantum_obliterator_name: 'Quantum Obliterator',
   evo_quantum_obliterator_desc: 'Plasma Blaster + Overclock: Emits a continuous, high-damage rotating beam that disintegrates all foes.',
   evo_tachyon_vortex_name: 'Tachyon Vortex',
@@ -593,7 +593,7 @@ const en: Translations = {
   evo_orbital_death_ray_desc: 'Piercing Laser + Nitro Thruster: Pierces the battlefield with devastating cross-axis orbital laser columns.',
 
   // Achievements
-  achievementsBtn: '🏆 ACHIEVEMENTS',
+  achievementsBtn: 'ACHIEVEMENTS',
   achievementsTitle: 'ACHIEVEMENTS & REWARDS',
   claimReward: 'CLAIM',
   rewardClaimed: 'CLAIMED',
@@ -625,11 +625,11 @@ const en: Translations = {
 
   // Events
   eventAlertTitle: 'EMERGENCY DISPATCH',
-  event_meteor_shower_title: '⚠️ ORBITAL BOMBARDMENT',
+  event_meteor_shower_title: 'ORBITAL BOMBARDMENT',
   event_meteor_shower_desc: 'Incoming orbital kinetic strikes! Evade the red hazard telegraph zones!',
-  event_gold_drone_swarm_title: '💎 GOLD DRONE SWARM',
+  event_gold_drone_swarm_title: 'GOLD DRONE SWARM',
   event_gold_drone_swarm_desc: 'High-value resource drones detected! Hunt them down for massive Crystals!',
-  event_emp_storm_title: '⚡ EMP OVERLOAD',
+  event_emp_storm_title: 'EMP OVERLOAD',
   event_emp_storm_desc: 'Weapons supercharged! +40% Fire Rate & Damage, but visibility is hindered!',
 
   // Damage Analytics
@@ -691,14 +691,14 @@ const tr: Translations = {
   rankLabel: 'SEVİYE:',
 
   // Skill Node Tags
-  tagMinor: '🔹 TEMEL YETENEK',
-  tagNotable: '💠 ÖNEMLİ YETENEK',
-  tagKeystone: '👑 KİLİTTAŞI USTALIĞI',
+  tagMinor: '[TEMEL] STANDART YETENEK',
+  tagNotable: '[ÖNEMLİ] GELİŞMİŞ YETENEK',
+  tagKeystone: '[KİLİTTAŞI] UZMANLIK',
 
   // Tooltip Statuses
-  statusMaxed: '✓ MAKSİMUM SEVİYE',
-  statusMutex: '⛔ KİLİTLİ: Zıt uzmanlaşma yolu seçildi!',
-  statusPrereq: '🔒 KİLİTLİ: Önceki bağlı yeteneği açmalısınız',
+  statusMaxed: 'MAKSİMUM SEVİYE',
+  statusMutex: 'KİLİTLİ: Zıt uzmanlaşma yolu seçildi!',
+  statusPrereq: 'KİLİTLİ: Önceki bağlı yeteneği açmalısınız',
   promptUpgrade: 'TIKLAYIP GELİŞTİR',
   promptInsufficient: '(Yetersiz Kristal)',
 
@@ -734,7 +734,7 @@ const tr: Translations = {
 
   // Sectors
   sectorTag: 'GÖREV ALANLARI',
-  activeSector: '✓ AKTİF BÖLGE',
+  activeSector: 'AKTİF BÖLGE',
   selectSector: 'BÖLGEYİ SEÇ',
   hazardRating: 'Tehlike Seviyesi',
 
@@ -839,15 +839,15 @@ const tr: Translations = {
   dashCooling: 'DOLUYOR',
   focusBuff: 'ODAK +%30 HIZ',
 
-  bossAlert: '⚠️ DİKKAT: TİTAN MECH BÖLGEYE GİRİŞ YAPTI! ⚠️',
-  vacuumAlert: '🧲 VAKUM DARBESİ AKTİF!',
-  nukeAlert: '💥 TAKTİK NÜKLEER PATLAMA! 💥',
-  shieldReviveAlert: '🛡️ ACİL DURUM KALKANI DEVREDE! (3s DOKUNULMAZLIK)',
+  bossAlert: 'DİKKAT: TİTAN MECH BÖLGEYE GİRİŞ YAPTI!',
+  vacuumAlert: 'VAKUM DARBESİ AKTİF!',
+  nukeAlert: 'TAKTİK NÜKLEER PATLAMA!',
+  shieldReviveAlert: 'ACİL DURUM KALKANI DEVREDE! (3s DOKUNULMAZLIK)',
 
   levelUpTitle: 'SİSTEM GELİŞTİRMESİ',
   levelUpSubtitle: 'Bir modül geliştirmesi seçin:',
   cardHint: 'Tuşa bas veya tıkla',
-  chestTitle: '🌟 ALTIN SANDIK KAZANILDI! 🌟',
+  chestTitle: 'ALTIN SANDIK KAZANILDI!',
   chestCollect: 'ÖDÜLLERİ AL',
   gameOverTitle: 'GÖREV BAŞARISIZ',
   timeSurvived: 'Hayatta Kalınan Süre:',
@@ -896,7 +896,7 @@ const tr: Translations = {
   p_heal_desc: 'Anında 50 Can yeniler.',
 
   // Ships & Hangar
-  hangarBtn: '🚀 HANGAR',
+  hangarBtn: 'HANGAR',
   hangarTitle: 'GEMİ HANGARI',
   hangarSubtitle: 'FİLO TERSANESİ & SAVAŞ GEMİSİ SEÇİMİ',
   hangarSelect: 'GEMİYİ SEÇ',
@@ -964,7 +964,7 @@ const tr: Translations = {
   achievementsAllClaimed: 'TÜM ÖDÜLLER ALINDI',
 
   // Evolutions
-  evo_badge: '⚡ EVRİM',
+  evo_badge: 'EVRİM',
   evo_quantum_obliterator_name: 'Kuantum İmha Işını',
   evo_quantum_obliterator_desc: 'Plazma Blaster + Overclock: Karşılaştığı tüm düşmanları buharlaştıran devasa dönen kesintisiz lazer ışını.',
   evo_tachyon_vortex_name: 'Takyon Bıçak Girdabı',
@@ -981,7 +981,7 @@ const tr: Translations = {
   evo_orbital_death_ray_desc: 'Delici Lazer + Nitro İtici: Tüm savaş alanını yatay ve dikey eksende ikiye bölen devasa yörünge lazer sütunları.',
 
   // Achievements
-  achievementsBtn: '🏆 BAŞARIMLAR',
+  achievementsBtn: 'BAŞARIMLAR',
   achievementsTitle: 'BAŞARIMLAR & ÖDÜLLER',
   claimReward: 'ÖDÜLÜ AL',
   rewardClaimed: 'ALINDI',
@@ -1013,11 +1013,11 @@ const tr: Translations = {
 
   // Events
   eventAlertTitle: 'ACİL DURUM UYARISI',
-  event_meteor_shower_title: '⚠️ YÖRÜNGE BOMBARDIMANI',
+  event_meteor_shower_title: 'YÖRÜNGE BOMBARDIMANI',
   event_meteor_shower_desc: 'Yörüngesel kinetik saldırı başladı! Kırmızı tehlike halkalarından kaçının!',
-  event_gold_drone_swarm_title: '💎 ALTIN DRON SÜRÜSÜ',
+  event_gold_drone_swarm_title: 'ALTIN DRON SÜRÜSÜ',
   event_gold_drone_swarm_desc: 'Yüksek değerli kaynak dronları saptandı! Bol Kristal için avlayın!',
-  event_emp_storm_title: '⚡ EMP AŞIRI YÜKLEME',
+  event_emp_storm_title: 'EMP AŞIRI YÜKLEME',
   event_emp_storm_desc: 'Silahlar aşırı yüklendi! +%40 Atış Hızı & Hasar, görüş alanı kısıtlandı!',
 
   // Damage Analytics
