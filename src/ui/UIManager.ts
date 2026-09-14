@@ -13,6 +13,8 @@ export class UIManager {
   private container: HTMLElement;
   private announcementTimeout: number | null = null;
   public onLanguageChange?: () => void;
+  public lastPlayer: Player | null = null;
+  public lastActiveWeapons: Weapon[] = [];
 
   constructor() {
     let el = document.getElementById('ui-container');
@@ -151,6 +153,40 @@ export class UIManager {
             <h2 id="modal-title">${t.levelUpTitle}</h2>
             <p id="modal-subtitle" class="modal-subtitle">${t.levelUpSubtitle}</p>
           </div>
+
+          <!-- Collapsible Equipment Drawer (Shown on-demand during skill selection) -->
+          <div id="modal-equip-drawer" class="modal-equip-drawer">
+            <button id="modal-equip-toggle-btn" class="modal-equip-toggle-btn" type="button">
+              <span class="modal-equip-toggle-main">
+                <span class="modal-equip-toggle-icon">${icon('shield', 13)}</span>
+                <span id="modal-equip-toggle-text">MEVCUT DONANIM</span>
+              </span>
+              <span class="modal-equip-toggle-arrow">
+                <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">
+                  <polyline points="6 9 12 15 18 9"></polyline>
+                </svg>
+              </span>
+            </button>
+            <div id="modal-equip-content" class="modal-equip-content collapsed">
+              <div class="modal-equip-grid">
+                <div class="modal-equip-col">
+                  <div class="modal-equip-col-header">
+                    <span class="equip-badge weapon-badge">${icon('sword', 12)}</span>
+                    <span id="modal-weapons-count-label">${t.weapons}</span>
+                  </div>
+                  <div id="modal-weapon-slots" class="slots-container"></div>
+                </div>
+                <div class="modal-equip-col">
+                  <div class="modal-equip-col-header">
+                    <span class="equip-badge passive-badge">${icon('shield', 12)}</span>
+                    <span id="modal-passives-count-label">${t.passives}</span>
+                  </div>
+                  <div id="modal-passive-slots" class="slots-container"></div>
+                </div>
+              </div>
+            </div>
+          </div>
+
           <div id="cards-container"></div>
         </div>
       </div>
@@ -398,6 +434,8 @@ export class UIManager {
   }
 
   public updateHUD(player: Player, gameTime: number, activeWeapons: Weapon[]) {
+    this.lastPlayer = player;
+    this.lastActiveWeapons = activeWeapons;
     const t = i18n.t;
 
     // XP Bar
@@ -519,17 +557,118 @@ export class UIManager {
     }
   }
 
+  public renderModalEquipment(player: Player | null, activeWeapons: Weapon[]) {
+    const drawer = document.getElementById('modal-equip-drawer');
+    if (!drawer) return;
+
+    if (!player) {
+      drawer.style.display = 'none';
+      return;
+    }
+    drawer.style.display = 'flex';
+
+    const toggleBtn = document.getElementById('modal-equip-toggle-btn');
+    const content = document.getElementById('modal-equip-content');
+    const toggleText = document.getElementById('modal-equip-toggle-text');
+    const wCountLabel = document.getElementById('modal-weapons-count-label');
+    const pCountLabel = document.getElementById('modal-passives-count-label');
+    const wSlots = document.getElementById('modal-weapon-slots');
+    const pSlots = document.getElementById('modal-passive-slots');
+
+    const t = i18n.t;
+    const filledWeapons = activeWeapons ? activeWeapons.filter(Boolean) : [];
+    const passives = player.equippedPassives ? Array.from(player.equippedPassives.entries()) : [];
+
+    const wCount = filledWeapons.length;
+    const pCount = passives.length;
+
+    if (toggleText) {
+      const equipText = i18n.lang === 'tr' ? 'MEVCUT DONANIM' : 'EQUIPPED ARSENAL';
+      const wWord = i18n.lang === 'tr' ? 'Silah' : 'Weapons';
+      const pWord = i18n.lang === 'tr' ? 'Pasif' : 'Passives';
+      toggleText.textContent = `${equipText} (${wCount}/6 ${wWord} • ${pCount}/6 ${pWord})`;
+    }
+
+    if (wCountLabel) {
+      wCountLabel.textContent = `${t.weapons} (${wCount}/6)`;
+    }
+    if (pCountLabel) {
+      pCountLabel.textContent = `${t.passives} (${pCount}/6)`;
+    }
+
+    // Render weapon slots
+    if (wSlots) {
+      let html = '';
+      for (let i = 0; i < 6; i++) {
+        const w = activeWeapons[i];
+        if (w) {
+          html += `
+            <div class="slot-box weapon-slot filled" title="${w.name} (LV.${w.level})">
+              <div class="slot-vector-icon">${SkillCardRenderer.getSkillSvg(w.id, 28)}</div>
+              <span class="slot-lvl-badge weapon-lvl">LV.${w.level}</span>
+            </div>`;
+        } else {
+          html += `<div class="slot-box weapon-slot empty"><span class="slot-empty-pip"></span></div>`;
+        }
+      }
+      wSlots.innerHTML = html;
+    }
+
+    // Render passive slots
+    if (pSlots) {
+      let html = '';
+      for (let i = 0; i < 6; i++) {
+        const p = passives[i];
+        if (p) {
+          html += `
+            <div class="slot-box passive-slot filled" title="${p[0]} (LV.${p[1]})">
+              <div class="slot-vector-icon">${SkillCardRenderer.getSkillSvg(p[0], 28)}</div>
+              <span class="slot-lvl-badge passive-lvl">LV.${p[1]}</span>
+            </div>`;
+        } else {
+          html += `<div class="slot-box passive-slot empty"><span class="slot-empty-pip"></span></div>`;
+        }
+      }
+      pSlots.innerHTML = html;
+    }
+
+    // Setup toggle behavior
+    if (toggleBtn && content) {
+      content.classList.add('collapsed');
+      toggleBtn.classList.remove('expanded');
+
+      toggleBtn.onclick = (e) => {
+        e.stopPropagation();
+        const isCollapsed = content.classList.contains('collapsed');
+        if (isCollapsed) {
+          content.classList.remove('collapsed');
+          toggleBtn.classList.add('expanded');
+          sounds.playGem();
+        } else {
+          content.classList.add('collapsed');
+          toggleBtn.classList.remove('expanded');
+        }
+      };
+    }
+  }
+
   public showUpgradeModal(
     cards: UpgradeCard[],
     onSelect: (card: UpgradeCard) => void,
     onReroll?: () => void,
-    rerollsLeft?: number
+    rerollsLeft?: number,
+    player?: Player,
+    activeWeapons?: Weapon[]
   ) {
     const backdrop = document.getElementById('modal-backdrop');
     const container = document.getElementById('cards-container');
     const modalTitle = document.getElementById('modal-title');
     const modalSubtitle = document.getElementById('modal-subtitle');
     if (!backdrop || !container) return;
+
+    const p = player || this.lastPlayer;
+    const w = activeWeapons || this.lastActiveWeapons;
+    this.renderModalEquipment(p, w);
 
     const t = i18n.t;
     if (modalTitle) modalTitle.textContent = t.levelUpTitle;
@@ -593,7 +732,7 @@ export class UIManager {
       container.appendChild(rerollContainer);
     }
 
-    // Keyboard shortcuts (1, 2, 3)
+    // Keyboard shortcuts (1, 2, 3, R, E, Tab)
     const keyHandler = (e: KeyboardEvent) => {
       if (['Digit1', 'Digit2', 'Digit3', 'Numpad1', 'Numpad2', 'Numpad3'].includes(e.code)) {
         let index = -1;
@@ -607,12 +746,21 @@ export class UIManager {
       } else if (e.code === 'KeyR' && onReroll && rerollsLeft && rerollsLeft > 0) {
         window.removeEventListener('keydown', keyHandler);
         onReroll();
+      } else if (e.code === 'KeyE' || e.code === 'Tab') {
+        e.preventDefault();
+        const toggleBtn = document.getElementById('modal-equip-toggle-btn');
+        if (toggleBtn) toggleBtn.click();
       }
     };
     window.addEventListener('keydown', keyHandler);
   }
 
-  public showChestModal(cards: UpgradeCard[], onDone: () => void) {
+  public showChestModal(
+    cards: UpgradeCard[],
+    onDone: () => void,
+    player?: Player,
+    activeWeapons?: Weapon[]
+  ) {
     const backdrop = document.getElementById('modal-backdrop');
     const container = document.getElementById('cards-container');
     const modalTitle = document.getElementById('modal-title');
@@ -620,6 +768,10 @@ export class UIManager {
     if (!backdrop || !container) return;
 
     sounds.playChest();
+    const p = player || this.lastPlayer;
+    const w = activeWeapons || this.lastActiveWeapons;
+    this.renderModalEquipment(p, w);
+
     const t = i18n.t;
     if (modalTitle) modalTitle.textContent = t.chestTitle;
     if (modalSubtitle) modalSubtitle.textContent = '';
@@ -654,10 +806,25 @@ export class UIManager {
       container.appendChild(cardEl);
     });
 
+    const keyHandler = (e: KeyboardEvent) => {
+      if (e.code === 'KeyE' || e.code === 'Tab') {
+        e.preventDefault();
+        const toggleBtn = document.getElementById('modal-equip-toggle-btn');
+        if (toggleBtn) toggleBtn.click();
+      } else if (e.code === 'Space' || e.code === 'Enter') {
+        e.preventDefault();
+        window.removeEventListener('keydown', keyHandler);
+        backdrop.classList.add('hidden');
+        onDone();
+      }
+    };
+    window.addEventListener('keydown', keyHandler);
+
     const collectBtn = document.createElement('button');
     collectBtn.className = 'primary-btn collect-btn';
     collectBtn.textContent = t.chestCollect;
     collectBtn.onclick = () => {
+      window.removeEventListener('keydown', keyHandler);
       backdrop.classList.add('hidden');
       onDone();
     };

@@ -785,24 +785,9 @@ html, body {
   color: #ffffff;
 }
 
-/* Equipment Tray (Top Left) */
+/* Equipment Tray (Hidden during normal gameplay - shown in skill selection modal on demand) */
 #equipment-tray {
-  position: absolute;
-  top: 22px;
-  left: 22px;
-  display: flex;
-  flex-direction: column;
-  gap: 8px;
-  background: rgba(8, 14, 28, 0.75);
-  backdrop-filter: blur(16px);
-  -webkit-backdrop-filter: blur(16px);
-  border: 1px solid rgba(0, 229, 255, 0.2);
-  border-radius: 16px;
-  padding: 10px 14px;
-  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.45), 0 0 15px rgba(0, 229, 255, 0.08);
-  pointer-events: auto;
-  z-index: 10;
-  transition: transform 0.2s ease;
+  display: none !important;
 }
 
 .equip-section {
@@ -1229,6 +1214,196 @@ html, body {
   font-size: 14px;
   color: #94a3b8;
   margin-top: 4px;
+}
+
+/* Upgrade Modal Collapsible Equipment Drawer */
+.modal-equip-drawer {
+  width: 100%;
+  max-width: 680px;
+  margin-bottom: 14px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.modal-equip-toggle-btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+  width: 100%;
+  max-width: 460px;
+  padding: 7px 16px;
+  background: rgba(15, 23, 42, 0.75);
+  border: 1px solid rgba(0, 229, 255, 0.3);
+  border-radius: 20px;
+  color: #e2e8f0;
+  font-family: 'Orbitron', sans-serif;
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 1px;
+  cursor: pointer;
+  transition: all 0.22s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+  box-shadow: 0 4px 14px rgba(0, 0, 0, 0.4);
+}
+
+.modal-equip-toggle-btn:hover {
+  background: rgba(0, 229, 255, 0.12);
+  border-color: #00e5ff;
+  color: #ffffff;
+  box-shadow: 0 0 16px rgba(0, 229, 255, 0.35);
+  transform: translateY(-1px);
+}
+
+.modal-equip-toggle-btn.expanded {
+  background: rgba(0, 229, 255, 0.16);
+  border-color: #00e5ff;
+  color: #00e5ff;
+  box-shadow: 0 0 18px rgba(0, 229, 255, 0.4);
+}
+
+.modal-equip-toggle-main {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.modal-equip-toggle-icon {
+  display: flex;
+  align-items: center;
+  color: #00e5ff;
+}
+
+.modal-equip-toggle-arrow {
+  display: flex;
+  align-items: center;
+  transition: transform 0.25s ease;
+  color: #94a3b8;
+}
+
+.modal-equip-toggle-btn.expanded .modal-equip-toggle-arrow {
+  transform: rotate(180deg);
+  color: #00e5ff;
+}
+
+.modal-equip-content {
+  width: 100%;
+  max-height: 220px;
+  opacity: 1;
+  overflow: hidden;
+  transition: max-height 0.3s cubic-bezier(0.4, 0, 0.2, 1), opacity 0.25s ease, margin 0.25s ease;
+  margin-top: 10px;
+  background: rgba(10, 16, 32, 0.85);
+  border: 1px solid rgba(0, 229, 255, 0.2);
+  border-radius: 14px;
+  padding: 12px 18px;
+  box-sizing: border-box;
+}
+
+.modal-equip-content.collapsed {
+  max-height: 0 !important;
+  opacity: 0 !important;
+  margin-top: 0 !important;
+  padding-top: 0 !important;
+  padding-bottom: 0 !important;
+  border: none !important;
+  pointer-events: none;
+}
+
+.modal-equip-grid {
+  display: flex;
+  justify-content: space-around;
+  gap: 16px;
+  width: 100%;
+  flex-wrap: wrap;
+}
+
+.modal-equip-col {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 6px;
+}
+
+.modal-equip-col-header {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  font-family: 'Orbitron', sans-serif;
+  font-size: 11px;
+  font-weight: 800;
+  letter-spacing: 1px;
+}
+
+.modal-equip-col:first-child .modal-equip-col-header {
+  color: #38bdf8;
+}
+
+.modal-equip-col:last-child .modal-equip-col-header {
+  color: #c084fc;
+}
+
+.modal-equip-content .slots-container {
+  display: flex;
+  gap: 6px;
+}
+
+.modal-equip-content .slot-box {
+  width: 36px;
+  height: 36px;
+  border-radius: 9px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+  box-sizing: border-box;
+  transition: all 0.2s ease;
+}
+
+.modal-equip-content .slot-box.empty {
+  background: rgba(15, 23, 42, 0.5);
+  border: 1px dashed rgba(255, 255, 255, 0.14);
+}
+
+.modal-equip-content .slot-box.empty .slot-empty-pip {
+  display: block;
+  width: 5px;
+  height: 5px;
+  border-radius: 50%;
+  background: rgba(255, 255, 255, 0.2);
+}
+
+.modal-equip-content .slot-box.weapon-slot.filled {
+  background: linear-gradient(135deg, rgba(2, 132, 199, 0.35), rgba(6, 182, 212, 0.25));
+  border: 1px solid rgba(0, 229, 255, 0.7);
+  box-shadow: 0 0 10px rgba(0, 229, 255, 0.25);
+}
+
+.modal-equip-content .slot-box.passive-slot.filled {
+  background: linear-gradient(135deg, rgba(147, 51, 234, 0.35), rgba(217, 70, 239, 0.25));
+  border: 1px solid rgba(168, 85, 247, 0.7);
+  box-shadow: 0 0 10px rgba(168, 85, 247, 0.25);
+}
+
+.modal-equip-content .slot-box.filled:hover {
+  transform: translateY(-2px) scale(1.06);
+}
+
+.modal-equip-content .slot-vector-icon svg {
+  width: 22px;
+  height: 22px;
+}
+
+.modal-equip-content .slot-lvl-badge {
+  position: absolute;
+  bottom: 2px;
+  right: 2px;
+  font-family: 'Orbitron', monospace;
+  font-size: 8px;
+  font-weight: 900;
+  padding: 1px 3px;
+  border-radius: 3px;
+  line-height: 1;
 }
 
 /* Upgrade Cards Container */
@@ -2667,99 +2842,62 @@ html, body {
     height: 11px;
   }
 
-  /* Ultra-Compact & Unobtrusive Mobile Equipment Tray */
+  /* Equipment Tray completely hidden during normal gameplay */
   #equipment-tray {
-    top: 56px;
-    left: 8px;
-    display: flex;
-    flex-direction: column;
-    gap: 3px;
-    padding: 3px 6px;
-    border-radius: 8px;
-    background: rgba(6, 11, 22, 0.7);
-    backdrop-filter: blur(8px);
-    -webkit-backdrop-filter: blur(8px);
-    border: 1px solid rgba(0, 229, 255, 0.18);
-    box-shadow: 0 4px 16px rgba(0, 0, 0, 0.4);
-    pointer-events: none;
-    max-width: calc(100vw - 16px);
-    z-index: 20;
-  }
-  #equipment-tray .slot-box.filled {
-    pointer-events: auto;
-  }
-  .equip-section {
-    display: flex;
-    flex-direction: row;
-    align-items: center;
-    gap: 4px;
-  }
-  .equip-section.weapons-section {
-    border-bottom: 1px solid rgba(255, 255, 255, 0.08);
-    padding-bottom: 2px;
-  }
-  .equip-header {
-    display: flex;
-    align-items: center;
-    margin: 0;
-    padding: 0;
-  }
-  .equip-label {
-    display: none;
-  }
-  .equip-badge {
-    font-size: 9px;
-    width: 14px;
-    height: 14px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    opacity: 0.85;
-  }
-  .equip-badge svg {
-    width: 11px;
-    height: 11px;
-  }
-  .slots-container {
-    display: flex;
-    align-items: center;
-    gap: 2.5px;
-  }
-  .slot-box {
-    width: 22px;
-    height: 22px;
-    min-width: 22px;
-    border-radius: 5px;
-    transition: none;
-  }
-  .slot-box.empty {
-    width: 5px;
-    height: 5px;
-    min-width: 5px;
-    border-radius: 50%;
-    background: rgba(255, 255, 255, 0.2);
-    border: none;
-    margin: 0 1px;
-  }
-  .slot-box.empty .slot-empty-pip {
-    display: none;
-  }
-  .slot-vector-icon svg {
-    width: 14px !important;
-    height: 14px !important;
-  }
-  .slot-lvl-badge {
-    font-size: 6px;
-    padding: 0 1.5px;
-    bottom: 0px;
-    right: 0px;
-    border-radius: 2px;
-    letter-spacing: -0.2px;
+    display: none !important;
   }
 
-  /* Boss HUD on Mobile */
+  /* Mobile Modal Equipment Drawer */
+  .modal-equip-drawer {
+    margin-bottom: 8px;
+  }
+  .modal-equip-toggle-btn {
+    padding: 5px 12px;
+    font-size: 9.5px;
+    border-radius: 14px;
+    max-width: 95%;
+  }
+  .modal-equip-content {
+    padding: 6px 8px;
+    margin-top: 6px;
+    max-height: 200px;
+  }
+  .modal-equip-grid {
+    gap: 8px;
+  }
+  .modal-equip-col {
+    gap: 4px;
+  }
+  .modal-equip-col-header {
+    font-size: 8.5px;
+  }
+  .modal-equip-content .slots-container {
+    gap: 3px;
+  }
+  .modal-equip-content .slot-box {
+    width: 26px;
+    height: 26px;
+    min-width: 26px;
+    border-radius: 5px;
+  }
+  .modal-equip-content .slot-box.empty .slot-empty-pip {
+    width: 4px;
+    height: 4px;
+  }
+  .modal-equip-content .slot-vector-icon svg {
+    width: 16px !important;
+    height: 16px !important;
+  }
+  .modal-equip-content .slot-lvl-badge {
+    font-size: 6px;
+    padding: 0 1.5px;
+    bottom: 1px;
+    right: 1px;
+  }
+
+  /* Boss HUD on Mobile (Sits cleanly below top-hud) */
   .boss-hud {
-    top: 112px;
+    top: 68px;
     padding: 6px 12px;
     gap: 4px;
     width: min(94%, 480px);

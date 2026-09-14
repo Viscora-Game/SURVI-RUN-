@@ -914,7 +914,9 @@ export class Game {
               showOptions();
             }
           : undefined,
-        this.player.availableRerolls
+        this.player.availableRerolls,
+        this.player,
+        this.activeWeapons
       );
     };
 
@@ -929,10 +931,15 @@ export class Game {
       this.upgradeManager.applyUpgrade(card, this.player, this.activeWeapons);
     });
 
-    this.ui.showChestModal(cards, () => {
-      this.state = 'PLAYING';
-      this.lastTime = performance.now();
-    });
+    this.ui.showChestModal(
+      cards,
+      () => {
+        this.state = 'PLAYING';
+        this.lastTime = performance.now();
+      },
+      this.player,
+      this.activeWeapons
+    );
   }
 
   private checkSectorProgression() {
