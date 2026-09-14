@@ -1401,6 +1401,12 @@ html, body {
   box-shadow: 0 0 28px rgba(0, 229, 255, 0.7);
 }
 
+.collect-btn {
+  flex-basis: 100%;
+  max-width: 240px;
+  margin-top: 16px;
+}
+
 .secondary-btn {
   background: rgba(255, 255, 255, 0.06);
   border: 1px solid rgba(255, 255, 255, 0.15);
@@ -2620,30 +2626,299 @@ html, body {
     max-height: 85vh;
     overflow-y: auto;
   }
+  /* Ultra-sleek Compact Top HUD on Mobile */
   #top-hud {
-  position: absolute;
-  top: 34px;
-  left: 50%;
-  transform: translateX(-50%);
-  display: flex;
-  align-items: center;
-  gap: 14px;
-  background: rgba(10, 15, 28, 0.85);
-  backdrop-filter: blur(14px);
-  -webkit-backdrop-filter: blur(14px);
-  padding: 6px 18px;
-  border-radius: 40px;
-  border: 1px solid rgba(255, 255, 255, 0.12);
-  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.5);
-  pointer-events: auto;
-  z-index: 25;
-}
-  .hud-stat {
-    font-size: 12px;
+    position: absolute;
+    top: 22px;
+    left: 50%;
+    transform: translateX(-50%);
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    background: rgba(10, 15, 28, 0.85);
+    backdrop-filter: blur(14px);
+    -webkit-backdrop-filter: blur(14px);
+    padding: 4px 12px;
+    border-radius: 40px;
+    border: 1px solid rgba(255, 255, 255, 0.12);
+    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.5);
+    pointer-events: auto;
+    z-index: 25;
   }
+  .hud-stat {
+    font-size: 11px;
+    gap: 4px;
+  }
+  .hud-stat svg {
+    width: 12px;
+    height: 12px;
+  }
+  .hud-divider {
+    height: 14px;
+    margin: 0 2px;
+  }
+  .hud-pill-btn {
+    padding: 3px 7px;
+    font-size: 10px;
+    gap: 3px;
+  }
+  .hud-pill-btn svg {
+    width: 11px;
+    height: 11px;
+  }
+
+  /* Ultra-Compact & Unobtrusive Mobile Equipment Tray */
   #equipment-tray {
     top: 56px;
-    left: 10px;
+    left: 8px;
+    display: flex;
+    flex-direction: column;
+    gap: 3px;
+    padding: 3px 6px;
+    border-radius: 8px;
+    background: rgba(6, 11, 22, 0.7);
+    backdrop-filter: blur(8px);
+    -webkit-backdrop-filter: blur(8px);
+    border: 1px solid rgba(0, 229, 255, 0.18);
+    box-shadow: 0 4px 16px rgba(0, 0, 0, 0.4);
+    pointer-events: none;
+    max-width: calc(100vw - 16px);
+    z-index: 20;
+  }
+  #equipment-tray .slot-box.filled {
+    pointer-events: auto;
+  }
+  .equip-section {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    gap: 4px;
+  }
+  .equip-section.weapons-section {
+    border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+    padding-bottom: 2px;
+  }
+  .equip-header {
+    display: flex;
+    align-items: center;
+    margin: 0;
+    padding: 0;
+  }
+  .equip-label {
+    display: none;
+  }
+  .equip-badge {
+    font-size: 9px;
+    width: 14px;
+    height: 14px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    opacity: 0.85;
+  }
+  .equip-badge svg {
+    width: 11px;
+    height: 11px;
+  }
+  .slots-container {
+    display: flex;
+    align-items: center;
+    gap: 2.5px;
+  }
+  .slot-box {
+    width: 22px;
+    height: 22px;
+    min-width: 22px;
+    border-radius: 5px;
+    transition: none;
+  }
+  .slot-box.empty {
+    width: 5px;
+    height: 5px;
+    min-width: 5px;
+    border-radius: 50%;
+    background: rgba(255, 255, 255, 0.2);
+    border: none;
+    margin: 0 1px;
+  }
+  .slot-box.empty .slot-empty-pip {
+    display: none;
+  }
+  .slot-vector-icon svg {
+    width: 14px !important;
+    height: 14px !important;
+  }
+  .slot-lvl-badge {
+    font-size: 6px;
+    padding: 0 1.5px;
+    bottom: 0px;
+    right: 0px;
+    border-radius: 2px;
+    letter-spacing: -0.2px;
+  }
+
+  /* Boss HUD on Mobile */
+  .boss-hud {
+    top: 112px;
+    padding: 6px 12px;
+    gap: 4px;
+    width: min(94%, 480px);
+  }
+  .boss-title-row {
+    font-size: 11px;
+  }
+  #boss-title {
+    font-size: 9px;
+  }
+  #boss-hp-container {
+    height: 10px;
+  }
+  #boss-hp-text {
+    font-size: 9px;
+  }
+
+  /* Upgrade & Chest Modal Side-by-Side Mobile Layout */
+  #upgrade-modal {
+    width: 96vw;
+    max-width: 540px;
+    padding: 12px 8px 10px 8px;
+    border-radius: 14px;
+    max-height: 94vh;
+    box-sizing: border-box;
+  }
+  #upgrade-modal .modal-header {
+    margin-bottom: 8px;
+  }
+  #upgrade-modal .modal-header h2 {
+    font-size: 15px;
+    letter-spacing: 1px;
+  }
+  #upgrade-modal .modal-subtitle {
+    font-size: 9.5px;
+    margin-top: 1px;
+  }
+  #cards-container {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: stretch;
+    gap: 6px;
+    width: 100%;
+  }
+  .upgrade-card {
+    flex: 1 1 0;
+    min-width: 0;
+    width: calc((100% - 14px) / 3);
+    max-width: calc((100% - 12px) / 3);
+    padding: 8px 4px 6px 4px;
+    border-radius: 10px;
+    box-sizing: border-box;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    border-width: 1.5px;
+    cursor: pointer;
+  }
+  .upgrade-card:hover {
+    transform: none;
+  }
+  .upgrade-card:active {
+    transform: scale(0.96);
+  }
+  .card-top {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 3px;
+    margin-bottom: 4px;
+    width: 100%;
+  }
+  .card-vector-wrap {
+    width: 34px;
+    height: 34px;
+    min-width: 34px;
+    min-height: 34px;
+    border-radius: 8px;
+    padding: 2px;
+  }
+  .card-vector-wrap svg {
+    width: 24px !important;
+    height: 24px !important;
+  }
+  .card-badge-col {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 2px;
+    width: 100%;
+  }
+  .card-cat-badge {
+    font-size: 7px;
+    padding: 1px 4px;
+    letter-spacing: 0.2px;
+    border-radius: 4px;
+    white-space: nowrap;
+    line-height: 1.1;
+  }
+  .card-cat-badge svg {
+    width: 8px;
+    height: 8px;
+  }
+  .card-rarity {
+    font-size: 6.5px;
+    letter-spacing: 0.4px;
+    line-height: 1;
+  }
+  .card-title {
+    font-size: 9.5px;
+    font-weight: 800;
+    margin-bottom: 3px;
+    line-height: 1.15;
+    min-height: 22px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    word-break: break-word;
+  }
+  .card-desc {
+    font-size: 8px;
+    line-height: 1.15;
+    color: #94a3b8;
+    text-align: center;
+    overflow: hidden;
+    display: -webkit-box;
+    -webkit-line-clamp: 3;
+    -webkit-box-orient: vertical;
+    margin-bottom: 2px;
+    word-break: break-word;
+    flex-grow: 1;
+  }
+  .card-hint {
+    display: none;
+  }
+  .modal-reroll-wrapper {
+    flex-basis: 100%;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    margin-top: 6px;
+  }
+  .reroll-action-btn {
+    font-size: 10.5px;
+    padding: 6px 14px;
+    border-radius: 8px;
+    gap: 5px;
+  }
+  .collect-btn {
+    flex-basis: 100%;
+    width: 90%;
+    max-width: 240px;
+    margin: 8px auto 0 auto;
+    font-size: 11px;
+    padding: 7px 14px;
   }
 }
 
@@ -2785,6 +3060,36 @@ html, body {
   .menu-grid-actions {
     grid-template-columns: 1fr 1fr;
     gap: 8px;
+  }
+  #cards-container {
+    gap: 3.5px;
+  }
+  .upgrade-card {
+    width: calc((100% - 9px) / 3);
+    max-width: calc((100% - 8px) / 3);
+    padding: 6px 2px 4px 2px;
+  }
+  .card-vector-wrap {
+    width: 28px;
+    height: 28px;
+    min-width: 28px;
+    min-height: 28px;
+  }
+  .card-vector-wrap svg {
+    width: 18px !important;
+    height: 18px !important;
+  }
+  .card-title {
+    font-size: 8.5px;
+    min-height: 20px;
+  }
+  .card-desc {
+    font-size: 7.5px;
+    -webkit-line-clamp: 3;
+  }
+  .card-cat-badge {
+    font-size: 6.5px;
+    padding: 1px 3px;
   }
 }
 
